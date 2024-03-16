@@ -1,0 +1,52 @@
+.containerTable {
+    display: flex;
+   align-items: center;
+   justify-content: center;
+    background: transparent;
+    border:1px solid #709ae7;
+    border-radius: 1rem;
+    overflow-x: auto; 
+}
+
+.containerTable table {
+    width: 100%;
+    border-collapse: collapse;
+    padding-top: 1rem;
+}
+
+/* .containerCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+} */
+
+.containerTable table th,
+.containerTable table td {
+    padding: 0.5rem;
+    text-align: center;
+   
+    border: 1px solid #709ae7; 
+} 
+
+.containerTable table thead th {
+    padding-top: 1rem;
+    background-color:  #709ae7; 
+}
+
+.count {
+    padding: 1rem;
+}
+
+/* סגנון למסך ברוחב של עד 600px */
+@media screen and (max-width: 600px) {
+    .containerTable table th,
+    .containerTable table td {
+        padding: 0.2rem;
+        font-size: 0.8rem;
+    }
+
+    .count {
+        font-size: 0.8rem;
+    }
+}

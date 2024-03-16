@@ -1,0 +1,40 @@
+
+.cell-content {
+    display: flex; /* שימוש ב-Flex כדי ליישר תוכן במרכז */
+    align-items: center; /* יישור התוכן במרכז */
+    justify-content: center; /* יישור התוכן במרכז */
+}
+
+.role{
+    background-color: slateblue;
+    padding: 2px;
+    border-radius: 4px;
+    margin: 10px;
+    font-size: 0.6rem;
+}
+
+.tdRole{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+    font: bolder;
+    padding: 1rem;
+    font-size: 13px;
+    font-weight: 300;
+    background-color: antiquewhite;
+    width: 160px;
+
+}
+
+.absolute div {
+    display: flex;
+   justify-content: space-around;
+   padding: 0.3rem;
+}
+.absolute div button{
+    background: #b7b4b4;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 10px;
+}

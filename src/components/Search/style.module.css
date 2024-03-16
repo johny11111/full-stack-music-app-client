@@ -1,0 +1,13 @@
+.containerSearch{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.containerInputSearch{
+    margin-top: 1rem;
+    width: 80%;
+}

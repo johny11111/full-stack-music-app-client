@@ -1,0 +1,27 @@
+.containerSongDash {
+    margin-top: 2rem;
+    text-decoration: none;
+    max-width: 250px;
+    width: 100%;
+    color: rgb(22, 22, 22);
+    min-width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 5px;
+    gap: 1rem;
+    justify-content: space-around;
+    background: local;
+    border: 1px solid #709ae7;
+    -webkit-box-shadow: 0px 0px 21px -4px rgb(137, 135, 137);
+    border-radius: 12px;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+    height: 100px;
+}

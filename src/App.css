@@ -1,0 +1,30 @@
+.containerApp {
+    height: auto;
+
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+
+
+
+
+.audio {
+    width: 25%;
+    color: white;
+}
+
+audio::-webkit-media-controls-enclosure {
+    background-color: rgb(56, 54, 54 0.6);
+    background-color: rgb(56, 54, 54);
+    color: white;
+}
+
+audio::-webkit-media-controls {
+
+    color: aliceblue;
+}
+

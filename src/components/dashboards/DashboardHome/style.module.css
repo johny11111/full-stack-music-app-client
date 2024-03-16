@@ -1,0 +1,23 @@
+.containerHome{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+    padding: 2rem;
+   
+    width: 50%;
+    height: 100%;
+   
+}
+
+@media screen and (max-width:600px) {
+ .containerHome{
+    width: 100%;
+ }   
+}
+
+@media screen and (max-width:800px) {
+ .containerHome{
+    max-width: 90%;
+ }   
+}

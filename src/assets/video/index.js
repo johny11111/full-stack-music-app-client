@@ -1,0 +1,1 @@
+export {  default as BgLogin } from './bg.mp4'
