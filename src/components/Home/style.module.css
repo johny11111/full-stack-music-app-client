@@ -73,11 +73,8 @@
     max-width: 100%;
     gap: 1rem;
     width: 100%;
-    /* display: grid; */
     padding: 1rem;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr ;  */
     display: flex;
-    
     justify-content: space-around;
     color: rgb(121, 118, 118);
     overflow-x: scroll;
@@ -119,7 +116,7 @@
     overflow: hidden;
     padding: 1rem;
 
-    position: relative;
+    /* position: relative; */
 }
 
 .containerSongHome:hover {
@@ -132,10 +129,6 @@
     max-height: 200px;
     height: 100%;
 }
-
-/* .playPause {
-    position: absolute;
-} */
 
 
 .player {
@@ -180,3 +173,9 @@
         height: 100lvh;
     }
 }
+
+/* @media screen and (max-width: 932px) {
+    .containerTitle{
+
+    }
+} */

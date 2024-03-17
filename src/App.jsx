@@ -80,7 +80,7 @@ function App() {
 
         <div>
           {
-            currentSong && window.location.pathname !== '/login' && !window.location.pathname.includes('dashboard') && <Player
+            currentSong && !window.location.pathname.includes("login")  && !window.location.pathname.includes('dashboard') && <Player
               songs={songsPlayed} 
               albumSongs={albumSongs}
               setCurrentTime={setCurrentTime}

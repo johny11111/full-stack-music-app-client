@@ -184,6 +184,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
 
     return (
         <div className={styles.containerPlayer}>
+            
             <div className={styles.boxImg}>
                 <img
                     className={isPlaying ? styles.rotatingImg : styles.img} src={songs[currentSongIndex]?.image} alt="song img" />

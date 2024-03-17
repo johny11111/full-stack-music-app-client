@@ -106,7 +106,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                 </motion.div>
                             </div>
                             <div className={styles.cover}></div>
-                            <div className={styles.containerTitle}>
+                            <div className={currentSong ? styles.containerTitle : styles.containerSongsBody}>
                                 <div className={styles.containerPlaySongs}>
                                     <div className={styles.containerFex}>
                                         <p><FaPlayCircle className={styles.playIconH} /></p>

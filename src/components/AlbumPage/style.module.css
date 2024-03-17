@@ -43,6 +43,15 @@
     /* background: linear-gradient(84deg, #772A22, #33120F); */
 }
 
+.containerSongsBody{
+    max-width: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    color: silver;
+}
+
 .flex {
     display: flex;
     justify-content: space-between;
@@ -122,3 +131,10 @@
     min-width: 100%;
    min-height: 1rem;
 } */
+
+
+@media screen and (max-width:932px) {
+    .containerTitle{
+        height: 40lvh;
+    }
+}
