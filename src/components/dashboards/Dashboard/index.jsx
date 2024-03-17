@@ -4,10 +4,10 @@ import NavSide from '../../NavSide';
 import { GoHome } from "react-icons/go";
 import User from '../../User/index.jsx';
 import { getAllUsers } from '../../../api/index.js';
-import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import { useStateValue } from '../../../context/StateProvider';
 import { reducerCases } from '../../../context/constants';
-import { getAllSongs , getAllAlbums , getAllArtists } from '../../../api/index.js';
+import { getAllSongs, getAllAlbums, getAllArtists } from '../../../api/index.js';
 
 
 import DashboardHome from '../DashboardHome';
@@ -25,6 +25,8 @@ export default function Dashboard() {
   const [{ users, artists, albums, songs }, dispatch] = useStateValue()
 
 
+
+
   useEffect(() => {
     if (!users) {
       getAllUsers().then((res) => {
@@ -34,7 +36,7 @@ export default function Dashboard() {
       });
     }
   }, [])
-  
+
   useEffect(() => {
     if (!songs) {
       getAllSongs().then((data) => {
@@ -54,19 +56,19 @@ export default function Dashboard() {
   useEffect(() => {
     if (!artists) {
       getAllArtists().then((data) => {
-        console.log("data" , data);
+        console.log("data", data);
         dispatch({ type: reducerCases.SET_ARTISTS, artists: data?.artist });
       })
     }
   }, [])
 
-  
+
 
   return (
     <div>
       <User />
       <Header />
-      
+
       <div className={styles.divD}>
         <NavLink
           onClick={() => setActiveLink('home')}
@@ -110,9 +112,15 @@ export default function Dashboard() {
       </div>
 
       <div className={styles.containerBody}>
-        {/* <Routes>
-        <Route path='/dashboard/home'  element={<DashboardHome />}/>
-       </Routes> */}
+{/*         
+        <Routes>
+          <Route path='/dashboard/' element={<DashboardHome />} />
+          <Route path='/dashboard/songs' element={<DashboardSongs />} />
+        </Routes> */}
+        
+      
+
+
         {window.location.pathname === "/dashboard" && <DashboardHome />}
         {window.location.pathname === "/dashboard/songs" && <DashboardSongs />}
         {window.location.pathname === "/dashboard/users" && <DashboardUsers />}
