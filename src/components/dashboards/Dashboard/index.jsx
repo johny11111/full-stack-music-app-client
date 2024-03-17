@@ -25,8 +25,6 @@ export default function Dashboard() {
   const [{ users, artists, albums, songs }, dispatch] = useStateValue()
 
 
-
-
   useEffect(() => {
     if (!users) {
       getAllUsers().then((res) => {
@@ -112,22 +110,16 @@ export default function Dashboard() {
       </div>
 
       <div className={styles.containerBody}>
-{/*         
-        <Routes>
-          <Route path='/dashboard/' element={<DashboardHome />} />
-          <Route path='/dashboard/songs' element={<DashboardSongs />} />
-        </Routes> */}
         
-      
-
-
-        {window.location.pathname === "/dashboard" && <DashboardHome />}
-        {window.location.pathname === "/dashboard/songs" && <DashboardSongs />}
-        {window.location.pathname === "/dashboard/users" && <DashboardUsers />}
-        {window.location.pathname === "/dashboard/artists" && <DashboardArtists />}
-        {window.location.pathname === "/dashboard/albums" && <DashboardAlbums />}
-        {window.location.pathname === "/dashboard/nowSong" && <DashboardNowSong />}
-
+        <Routes>
+          <Route path='/' element={<DashboardHome />} />
+          <Route path='/songs' element={<DashboardSongs />} />
+          <Route path='/users' element={<DashboardUsers />} />
+          <Route path='/artists' element={<DashboardArtists />} />
+          <Route path='/albums' element={<DashboardAlbums />} />
+          <Route path='/nowSong' element={<DashboardNowSong />} />
+        </Routes>
+        
       </div>
 
     </div>
