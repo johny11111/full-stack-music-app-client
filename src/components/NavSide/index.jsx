@@ -30,7 +30,7 @@ export default function NavSide() {
 
       <NavLink to={"/"} >
         <div className={styles.divImg}>
-          <img className={styles.img} src="../../../public/RmusicLogo.jpg" alt="icon" />
+          <img className={styles.img} src="../../../RmusicLogo.jpg" alt="icon" />
         </div>
       </NavLink>
 
