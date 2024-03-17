@@ -90,7 +90,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
     return (
         <div className={styles.containerHome}>
             <div className={styles.grid}>
-                <div className={styles.bodyContent}>
+                <div className={ styles.bodyContent}>
                     <div className={styles.containerSongsH}>
                         <div style={{ "overflow": "scroll", "width": "100%", "height": "98%" }}>
                             <div className={styles.HeaderBody}>
@@ -129,9 +129,9 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                 <div className={styles.containerBodyContent}>
                                     {albumSongs && albumSongs.map((song, i) => (
                                         <motion.div
-                                            initial={{ opacity: 1, y: 100 }}
-                                            animate={{ opacity: 20, y: 1 }}
-                                            transition={{ duration: 0.7 }}
+                                                initial={{ opacity: 1, y: 100 }}
+                                                animate={{ opacity: 20, y: 1 }}
+                                                transition={{ duration: 0.7 }}
                                             // className={styles.bodyContent}
                                             onClick={() => handleSongClick(song, i)}
                                             key={song?._id}

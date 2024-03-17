@@ -5,6 +5,7 @@ import { useStateValue } from '../../context/StateProvider';
 import { getAllAlbums } from '../../api';
 import { reducerCases } from '../../context/constants';
 import AlbumPage from '../AlbumPage';
+import { motion } from 'framer-motion'
 
 import AlbumCard from '../AlbumCard';
 import { Route, Routes } from 'react-router-dom';
@@ -32,29 +33,34 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
     return (
         <div className={styles.containerHome}>
-            <div className={styles.containerMenu} 
-            onClick={()=> setMenuClicked(prev => !prev)}
+            <div className={styles.containerMenu}
+                onClick={() => setMenuClicked(prev => !prev)}
             ><IoIosMenu /></div>
             <div className={styles.grid}>
-                <div className={!menuClicked ? styles.containerNavSide : styles.navSide}>
+                <motion.div
+                    initial={{ opacity: 1, y: 100 }}
+                    animate={{ opacity: 20, y: 1 }}
+                    transition={{ duration: 0.7 }}
+
+                    className={!menuClicked ? styles.containerNavSide : styles.navSide}>
                     <NavSide menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-                </div>
+                </motion.div>
                 <div className={styles.bodyContent}>
                     <Routes>
-                        <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
+                        <Route path='/search' element={<Search setMenuClicked={setMenuClicked} audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
                         <Route path='/' element={<div className={styles.containerSongsH}>
                             <div style={{ "width": "100%", "height": "98%" }}>
                                 <h3>top albums in spanish</h3>
                                 <div className={styles.containerTitle}>
 
                                     {albums && albums.map((album, i) => (
-                                        <AlbumCard key={album._id} album={album} i={i} />
+                                        <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} />
                                     ))}
                                 </div>
                             </div>
                         </div>} />
 
-                        <Route path='/music/:id' element={<AlbumPage setScreenTime={setScreenTime} screenTime={screenTime} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} audioRef={audioRef} currentTime={currentTime} setCurrentTime={setCurrentTime} />} />
+                        <Route path='/music/:id' element={<AlbumPage setScreenTime={setScreenTime} screenTime={screenTime} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} audioRef={audioRef} currentTime={currentTime} setCurrentTime={setCurrentTime}  />} />
 
                     </Routes>
                 </div>

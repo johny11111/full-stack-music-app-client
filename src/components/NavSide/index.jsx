@@ -40,10 +40,10 @@ export default function NavSide({ setMenuClicked, MenuClicked }) {
           animate={{ opacity: 90, x: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/"}>home</NavLink></li>
-          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/music"}>music</NavLink></li>
-          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/search"}>search</NavLink></li>
-          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/contact"}>contact us</NavLink></li>
+          <li><NavLink to={"/"}>home</NavLink></li>
+          <li><NavLink to={"/music"}>music</NavLink></li>
+          <li><NavLink to={"/search"}>search</NavLink></li>
+          <li><NavLink to={"/contact"}>contact us</NavLink></li>
         </motion.ul>
       </div>
     </motion.div>

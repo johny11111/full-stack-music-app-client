@@ -8,7 +8,7 @@ import { reducerCases } from '../../context/constants';
 import AlbumCard from "../AlbumCard"
 
 
-export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex }) {
+export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex , setMenuClicked }) {
   const [{ songs, albums, currentSong }, dispatch] = useStateValue();
   const [searchValue, setSearchValue] = useState("");
   const [filter, setFilter] = useState([]);
@@ -17,6 +17,12 @@ export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex
   const [selectedSongSearch, setSelectedSongSearch] = useState();
 
   // console.log(currentSong);
+
+
+useEffect(()=>{
+  setMenuClicked(false)
+},[])
+
 
   useEffect(() => {
     if (!songs) {
