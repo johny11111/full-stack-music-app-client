@@ -10,7 +10,7 @@ import { useStateValue } from '../../context/StateProvider';
 import { reducerCases } from '../../context/constants';
 import { validate } from '../../api';
 
-import { BgLogin } from "../../assets/video"
+// import { BgLogin } from "../../assets/video"
 
 
 export default function Login({ setAuth }) {
@@ -53,13 +53,13 @@ export default function Login({ setAuth }) {
 
   return (
     <div className={styles.containerLogin}>
-      <video src={BgLogin}
+      {/* <video src={BgLogin}
         type="video/mp4"
         autoPlay
         muted
         loop
         className={styles.videoBg}
-      />
+      /> */}
       <div onClick={loginWithGoogle} className={styles.containerConnect}>
         <FcGoogle />
         login wite google
