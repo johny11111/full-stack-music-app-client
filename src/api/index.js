@@ -2,7 +2,7 @@ import axios from "axios";
 import { useStateValue } from "../context/StateProvider";
 import { reducerCases } from "../context/constants";
 
-const baseUrl = "http://localhost:4000/";
+const baseUrl = "https://full-stack-music-app-server.onrender.com/";
 
 
 
