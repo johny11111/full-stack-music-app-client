@@ -9,14 +9,15 @@ import AlbumPage from '../AlbumPage';
 import AlbumCard from '../AlbumCard';
 import { Route, Routes } from 'react-router-dom';
 import Search from '../Search';
+import { IoIosMenu } from "react-icons/io";
 
-
-export default function Home({ setScreenTime , screenTime , currentSongIndex, setCurrentSongIndex, setCurrentTime,
+export default function Home({ setScreenTime, screenTime, currentSongIndex, setCurrentSongIndex, setCurrentTime,
     currentTime }) {
 
-    
+
 
     const [{ albums, audioRef }, dispatch] = useStateValue();
+    const [menuClicked, setMenuClicked] = useState(false)
 
 
     useEffect(() => {
@@ -31,16 +32,19 @@ export default function Home({ setScreenTime , screenTime , currentSongIndex, se
 
     return (
         <div className={styles.containerHome}>
+            <div className={styles.containerMenu} 
+            onClick={()=> setMenuClicked(prev => !prev)}
+            ><IoIosMenu /></div>
             <div className={styles.grid}>
-                <div className={styles.containerNavSide}>
-                    <NavSide />
+                <div className={!menuClicked ? styles.containerNavSide : styles.navSide}>
+                    <NavSide menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
                 </div>
                 <div className={styles.bodyContent}>
                     <Routes>
                         <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
                         <Route path='/' element={<div className={styles.containerSongsH}>
                             <div style={{ "width": "100%", "height": "98%" }}>
-                                    <h3>top albums in spanish</h3>
+                                <h3>top albums in spanish</h3>
                                 <div className={styles.containerTitle}>
 
                                     {albums && albums.map((album, i) => (

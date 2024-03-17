@@ -10,7 +10,7 @@ import User from '../User';
 
 // import Logo from '../../assets/images/logo.png';
 
-export default function NavSide() {
+export default function NavSide({ setMenuClicked, MenuClicked }) {
 
   const variants = {
     open: { opacity: 1, x: 0 },
@@ -40,10 +40,10 @@ export default function NavSide() {
           animate={{ opacity: 90, x: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <li><NavLink to={"/"}>home</NavLink></li>
-          <li><NavLink to={"/music"}>music</NavLink></li>
-          <li><NavLink to={"/search"}>search</NavLink></li>
-          <li><NavLink to={"/contact"}>contact us</NavLink></li>
+          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/"}>home</NavLink></li>
+          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/music"}>music</NavLink></li>
+          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/search"}>search</NavLink></li>
+          <li onClick={() => setMenuClicked(prev => !prev)} ><NavLink to={"/contact"}>contact us</NavLink></li>
         </motion.ul>
       </div>
     </motion.div>

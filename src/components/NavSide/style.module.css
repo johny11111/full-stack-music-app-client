@@ -15,11 +15,11 @@
 .containerUl a{
 text-decoration: none;
 font-size: 1.5rem;
-color: rgb(246, 239, 239);
+color: var(--textColor);
 }
 
 .containerUl a:hover {
-    color: white;
+    color:var(--textColor) ;
     cursor: pointer;
 }
 

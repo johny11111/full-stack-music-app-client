@@ -1,5 +1,6 @@
 
 import './App.css';
+import './style/style.css'
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';

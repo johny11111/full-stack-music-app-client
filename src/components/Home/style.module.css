@@ -7,6 +7,18 @@
     position: relative;
 }
 
+.containerMenu{
+    display: none;
+   
+}
+
+.containerSongsH h3 {
+    margin-top: 2rem;
+    color: var(--textColor);
+    padding-left: 2rem;
+}
+
+
 
 .grid {
     display: grid;
@@ -23,33 +35,12 @@
     flex-wrap: wrap;
     overflow-y: scroll;
     max-height: 100lvh;
-    background-color: #515151;
+    width: 95%;
+    background-color: var(--BgClient);
     border-radius: 10px;
     margin: 1rem;
 }
 
-
-/* .HeaderBody {
-
-    padding: 1rem;
-    display: flex;
-    height: 25vh;
-    width: 100%;
-    flex-direction: column;
-    justify-content: space-around;
-    border-bottom: 1px solid #d75146;
-    background: linear-gradient(183deg, #772A22, #33120F);
-
-} */
-
-/* .containerSongsH {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    max-height: 100vh;
-    overflow: auto;
-} */
 
 ::-webkit-scrollbar {
     display: none;
@@ -62,7 +53,7 @@
     display: flex;
     max-width: 100%;
     justify-content: space-between;
-    color: white;
+    color: var(--textColor);
     background: linear-gradient(180deg, #351310, #515151);
     padding: 1rem;
     border-bottom: 1px solid #D75146
@@ -110,13 +101,13 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    /* box-shadow: 0px 0px 21px -4px rgba(92, 91, 92, 1); */
+    box-shadow: 0px 0px 21px -4px rgba(92, 91, 92, 1);
     border-radius: 12px;
     background-size: cover;
     overflow: hidden;
     padding: 1rem;
 
-    /* position: relative; */
+
 }
 
 .containerSongHome:hover {
@@ -149,17 +140,25 @@
 .containerNavSide {
     height: 96lvh;
     width: 30lvw;
-    background: #515151;
+    background:var(--BgClient);
     padding: 1rem;
     overflow: hidden;
     margin: 1rem;
     border-radius: 10px;
 }
 
+.navSide{
+    position: absolute;
+    top: 2.2rem;
+    background-color: #351310;
+    z-index: 1;
+    height: max-content;
+}
 
 
 
-@media screen and (max-width: 415px) {
+
+@media screen and (max-width: 700px) {
     .containerNavSide{
         display: none;
         position: absolute;
@@ -171,11 +170,17 @@
         display: flex;
         overflow: hidden;
         height: 100lvh;
-    }
+    
+}
+   
+        .containerMenu{
+           display: block;
+           position: absolute;
+           top: 1rem;
+           left: 1rem;
+           font-size: 1.4rem;
+           color: var(--textColor);
+        }
+    
 }
 
-/* @media screen and (max-width: 932px) {
-    .containerTitle{
-
-    }
-} */

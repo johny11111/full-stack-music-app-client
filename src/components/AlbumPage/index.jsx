@@ -126,7 +126,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                 </motion.div>
 
 
-                                <div>
+                                <div className={styles.containerBodyContent}>
                                     {albumSongs && albumSongs.map((song, i) => (
                                         <motion.div
                                             initial={{ opacity: 1, y: 100 }}
