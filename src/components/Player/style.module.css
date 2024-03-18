@@ -174,7 +174,8 @@
 @media screen and (max-width:932px) {
     .containerPlayer {
         display: grid;
-        bottom: 1rem;
+        bottom: 0rem;
+        padding: 1rem;
         /* min-height: 20lvh; */
         /* grid-template-rows: calc(100% / 5);
         grid-template-columns: calc(100% / 1); */

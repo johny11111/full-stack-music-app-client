@@ -41,7 +41,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
     useEffect(() => {
         const filter = songs?.filter(song => song.album === selectedAlbum._id)
         dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: filter })
-    }, [])
+    }, [songs])
 
 
 
