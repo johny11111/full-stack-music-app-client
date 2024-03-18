@@ -32,15 +32,26 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
         }
         fetchData()
 
-        const filter = albums.filter(album => album.language === 'spanish')
-        console.log(filter);
-        setAlbumsInSpanish(filter)
-
-        const filterHebrew = albums.filter(album => album.language === 'Hebrew')
-        setAlbumsInHebrew(filterHebrew)
-
-
     }, []);
+
+    useEffect(() => {
+
+        if (albums) {
+            const filter = albums?.filter(album => album.language === 'spanish')
+            console.log(filter);
+            setAlbumsInSpanish(filter)
+
+
+            const filterHebrew = albums.filter(album => album.language === 'Hebrew')
+            setAlbumsInHebrew(filterHebrew)
+
+        }
+
+
+    }, [albums])
+
+
+
 
 
     return (
