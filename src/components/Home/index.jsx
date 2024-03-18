@@ -54,7 +54,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                                 <div className={styles.containerTitle}>
 
                                     {albums && albums.map((album, i) => (
-                                        <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} />
+                                        <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} menuClicked={menuClicked} />
                                     ))}
                                 </div>
                             </div>
