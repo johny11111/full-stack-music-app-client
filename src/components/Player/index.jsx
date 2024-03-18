@@ -63,7 +63,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [currentTime , isPlaying]);
+    }, [currentTime, isPlaying]);
 
     useEffect(() => {
         audioRef.current.volume = currentVolume;
@@ -175,7 +175,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
         audioRef.current.currentTime = e.target.value;
         await setCurrentTime(audioRef.current.currentTime);
         await setScreenTime(audioRef.current.currentTime);
-       await setScreenDuration(audioRef.current.duration - screenTime)
+        await setScreenDuration(audioRef.current.duration - screenTime)
     };
 
     const addToLibrary = (e) => {
@@ -184,12 +184,17 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
 
     return (
         <div className={styles.containerPlayer}>
-            
+
             <div className={styles.boxImg}>
                 <img
                     className={isPlaying ? styles.rotatingImg : styles.img} src={songs[currentSongIndex]?.image} alt="song img" />
                 <div style={{ "display": "flex", "flexWrap": "wrap", "maxWidth": "50%" }}>
-                    <h2>{songs[currentSongIndex]?.name}</h2>
+
+                    {
+
+                        window.innerWidth > 500 &&
+                        <h2>{songs[currentSongIndex]?.name}</h2>
+                    }
                 </div>
             </div>
 
@@ -198,23 +203,31 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                     <MdAddCircleOutline className={styles.addToLibrary}
                         onClick={() => addToLibrary(currentSong)}
                     />
-                    <span onClick={prevSongHandler}><TbPlayerTrackPrevFilled className={styles.icon} /></span>
+                    {window.innerWidth > 500 && <span onClick={prevSongHandler}><TbPlayerTrackPrevFilled className={styles.icon} /></span>}
+
                     <span onClick={playPauseHandler}>{isPlaying ? <FaRegPauseCircle className={styles.icon} /> : <FaRegCirclePlay className={styles.icon} />}</span>
-                    <span onClick={nextSongHandler}><TbPlayerTrackNextFilled className={styles.icon} /></span>
+
+                    {window.innerWidth > 500 && <span onClick={nextSongHandler}><TbPlayerTrackNextFilled className={styles.icon} /></span>}
                     <span onClick={() => setStartAgain((prev) => !prev)}><TfiReload className={startAgain ? styles.isActive : ""} /></span>
                 </div>
 
                 <div className={styles.containerCurrentTime}>
-                    {msToMinutes(screenDuration)}
+                    {window.innerWidth > 500 && msToMinutes(screenDuration)}
+
                     <input type="range" min={0} max={duration} value={screenTime} onChange={currentTimeChange} className={styles.inputCurrentTime} />
-                    {msToMinutes(screenTime)}
+
+                    {window.innerWidth > 500 && msToMinutes(screenTime)}
                 </div>
             </div>
 
-            <div className={styles.containerRVolume}>
+            <div className={styles.containerRVolume}> 
                 <CiVolumeHigh className={styles.volumeIcon} />
-                <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
+                {window.innerWidth > 500 && <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />  
+                
+                
+                }
                 <audio ref={audioRef} className='audio' src={songs[currentSongIndex]?.songUrl} autoPlay={false} />
+
             </div>
         </div>
     );

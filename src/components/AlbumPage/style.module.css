@@ -1,8 +1,6 @@
-
-
 .HeaderBody {
     padding: 1rem;
-    display: flex; 
+    display: flex;
     height: 20vh;
     overflow: hidden;
     padding: 0.5rem;
@@ -17,7 +15,7 @@
 
 
 
-.containerBodyContent{
+.containerBodyContent {
     height: 55lvh;
     overflow-y: scroll;
 }
@@ -32,7 +30,7 @@
 
 .containerPlaySongs {
     padding-bottom: 1rem;
-   
+
     display: flex;
     max-width: 100%;
     justify-content: space-between;
@@ -53,7 +51,7 @@
     /* background: linear-gradient(84deg, #772A22, #33120F); */
 }
 
-.containerSongsBody{
+.containerSongsBody {
     max-width: 100%;
     width: 100%;
     overflow-y: scroll;
@@ -137,27 +135,31 @@
     border-radius: 10px;
 }
 
+
+
 @media screen and (max-width: 700px) {
-    .containerTitle{
-        height: 50lvh;
+    .containerTitle {
+        height: 60lvh;
     }
 
-    .containerBodyContent{
+    .containerBodyContent {
         height: 59lvh;
     }
+
     .HeaderBody p {
         font-size: 3rem;
     }
- 
+
 }
 
 @media screen and (min-width: 900px) {
-    
 
-    .containerBodyContent{
+
+    .containerBodyContent {
         height: 65lvh;
     }
-    .containerTitle{
+
+    .containerTitle {
         height: 50lvh;
     }
 
@@ -165,17 +167,26 @@
         font-size: 3rem;
     }
 
- 
+
 }
 
 @media screen and (max-width: 450px) {
-    
 
     .HeaderBody p {
         font-size: 1.5rem;
     }
-
- 
 }
 
 
+@media screen and (min-width: 500px) {
+
+    .containerTitle {
+        height: 55lvh;
+    }
+
+    .containerBodyContent {
+        height: 48lvh;
+    }
+
+
+}
