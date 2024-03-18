@@ -19,17 +19,29 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
     const [{ albums, audioRef }, dispatch] = useStateValue();
     const [menuClicked, setMenuClicked] = useState(false)
-
+    const [albumsInSpanish, setAlbumsInSpanish] = useState(null)
+    const [albumsInHebrew, setAlbumsInHebrew] = useState(null)
 
     useEffect(() => {
         async function fetchData() {
 
             await getAllAlbums().then((data) => {
+
                 dispatch({ type: reducerCases.SET_ALBUMS, albums: data.album });
             });
         }
         fetchData()
+
+        const filter = albums.filter(album => album.language === 'spanish')
+        console.log(filter);
+        setAlbumsInSpanish(filter)
+
+        const filterHebrew = albums.filter(album => album.language === 'Hebrew')
+        setAlbumsInHebrew(filterHebrew)
+
+
     }, []);
+
 
     return (
         <div className={styles.containerHome}>
@@ -52,15 +64,27 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                             <div style={{ "width": "100%", "height": "98%" }}>
                                 <h3>top albums in spanish</h3>
                                 <div className={styles.containerTitle}>
-
-                                    {albums && albums.map((album, i) => (
+                                    {albumsInSpanish && albumsInSpanish.map((album, i) => (
                                         <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} menuClicked={menuClicked} />
                                     ))}
+
                                 </div>
+
+                                <h3>albums in hebrew</h3>
+                                <div className={styles.containerTitle}>
+
+                                    {albumsInHebrew && albumsInHebrew.map((album, i) => (
+                                        <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} menuClicked={menuClicked} />
+                                    ))}
+
+                                </div>
+
+
+
                             </div>
                         </div>} />
 
-                        <Route path='/music/:id' element={<AlbumPage setScreenTime={setScreenTime} screenTime={screenTime} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} audioRef={audioRef} currentTime={currentTime} setCurrentTime={setCurrentTime}  />} />
+                        <Route path='/music/:id' element={<AlbumPage setScreenTime={setScreenTime} screenTime={screenTime} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} audioRef={audioRef} currentTime={currentTime} setCurrentTime={setCurrentTime} />} />
 
                     </Routes>
                 </div>
