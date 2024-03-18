@@ -28,11 +28,11 @@ export default function NavSide({ setMenuClicked, MenuClicked }) {
         <div>  <User /></div>
       </div>
 
-      <NavLink to={"/"} >
+      {/* <NavLink to={"/"} >
         <div className={styles.divImg}>
           <img className={styles.img} src="../../../RmusicLogo.jpg" alt="icon" />
         </div>
-      </NavLink>
+      </NavLink> */}
 
       <div className={styles.containerUl}>
         <motion.ul
@@ -41,9 +41,9 @@ export default function NavSide({ setMenuClicked, MenuClicked }) {
           transition={{ duration: 0.5 }}
         >
           <li><NavLink to={"/"}>home</NavLink></li>
-          <li><NavLink to={"/music"}>music</NavLink></li>
+          {/* <li><NavLink to={"/music"}>music</NavLink></li> */}
           <li><NavLink to={"/search"}>search</NavLink></li>
-          <li><NavLink to={"/contact"}>contact us</NavLink></li>
+          <li><NavLink to={"/library"}>library</NavLink></li>
         </motion.ul>
       </div>
     </motion.div>

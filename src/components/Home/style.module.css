@@ -153,6 +153,7 @@
     background-color: #351310;
     z-index: 1;
     height: max-content;
+    border-top-right-radius:2.5rem ;
 }
 
 
@@ -164,6 +165,7 @@
         position: absolute;
         background-color: #351310;
         width: 15rem;
+        
 
     }
     .grid{
@@ -174,12 +176,12 @@
 }
    
         .containerMenu{
-           display: block;
-           position: absolute;
-           top: 1rem;
-           left: 1rem;
-           font-size: 1.4rem;
-           color: var(--textColor);
+    display: block;
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    font-size: 2.2rem;
+    color: var(--textColor);
         }
     
 }
