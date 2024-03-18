@@ -47,15 +47,12 @@ export default function DashboardNowSong() {
                 image: songImage,
             }
             
-            console.log(songToSave);
-
-
-            const post = axios.post("http://localhost:4000/songs/save" , songToSave);
+            const post = axios.post("https://full-stack-music-app-server.onrender.com/songs/save" , songToSave);
             setAudioLoading(false);
             setAudioUrl(null)
             setImageUploading(false);
 
-          return post
+          return getAllSongs
         }
         
     }
