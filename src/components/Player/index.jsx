@@ -203,11 +203,11 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                     <MdAddCircleOutline className={styles.addToLibrary}
                         onClick={() => addToLibrary(currentSong)}
                     />
-                    {window.innerWidth > 500 && <span onClick={prevSongHandler}><TbPlayerTrackPrevFilled className={styles.icon} /></span>}
+                    {<span onClick={prevSongHandler}><TbPlayerTrackPrevFilled className={styles.icon} /></span>}
 
                     <span onClick={playPauseHandler}>{isPlaying ? <FaRegPauseCircle className={styles.icon} /> : <FaRegCirclePlay className={styles.icon} />}</span>
 
-                    {window.innerWidth > 500 && <span onClick={nextSongHandler}><TbPlayerTrackNextFilled className={styles.icon} /></span>}
+                    {<span onClick={nextSongHandler}><TbPlayerTrackNextFilled className={styles.icon} /></span>}
                     <span onClick={() => setStartAgain((prev) => !prev)}><TfiReload className={startAgain ? styles.isActive : ""} /></span>
                 </div>
 
