@@ -1,5 +1,5 @@
 .containerHeader {
-    
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,8 +17,9 @@
 
     padding: 1.3rem;
 }
-.containerNavSide{
-  
+
+.containerNavSide {
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -26,20 +27,21 @@
     overflow: hidden;
     justify-content: space-between;
 }
+
 .containerUl ul {
     display: flex;
-    
+
     gap: 1rem;
     width: 100%;
 }
 
-.userName{
+.userName {
     color: white;
 }
 
 .popupLogOut {
-    background-color: #8c8888 ;
-   z-index: 1;
+    background-color: #8c8888;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
@@ -69,12 +71,43 @@
     background-size: cover;
 }
 
-.containerHeader a{
+.containerHeader a {
     text-decoration: none;
     color: black;
+}
+
+.containerHeader a:hover {
+    color: rgb(11, 11, 11);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+    .popupLogOut {
+        display: flex;
+        border-radius: 10px;
+        align-items: center;
+        position: absolute;
+        left: 59%;
+        width: 130px;
     }
-    
-    .containerHeader a:hover {
-        color: rgb(11, 11, 11);
-        cursor: pointer;
+
+    hr {
+        width: 100%;
     }
+
+    .containerUser {
+        position: absolute;
+        right: 0;
+    }
+
+    .logOut {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: red;
+        color: white !important;
+        font-weight: 500;
+        width: 100%;
+    }
+
+}

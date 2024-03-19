@@ -12,12 +12,11 @@
 .containerNavBottom a {
     background-color: black;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
+  
     color: var(--textColor);
     display: flex;
     align-items: center;
-    border-right: 1px solid var(--textColor);
-    border-left: 1px solid var(--textColor);
     width: calc(100% /3);
     justify-content: center;
     flex-direction: column;
@@ -29,4 +28,11 @@
     color: black;
     border-radius: 10px;
 
+}
+
+.Icon{
+
+    font-size: 1.8rem;
+    padding: 1px;
+    padding: 0.3rem;
 }

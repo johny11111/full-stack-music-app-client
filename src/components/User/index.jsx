@@ -3,16 +3,12 @@ import styles from './style.module.css'
 import { useStateValue } from '../../context/StateProvider';
 import { NavLink, Navigate } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
-import NavSide from '../NavSide';
+import { motion } from 'framer-motion'
+
 
 const auth = getAuth(app); // או getAuth() אם אתה רוצה להשתמש באפליקציה שהוגדרה מראש
 
-const handleLogOut = () => {
-    auth.signOut().then(() => {
-        window.localStorage.setItem("auth", "false")
-    }).catch((e) => console.log(e));
-    Navigate("/login", { replace: true })
-}
+
 
 import { app } from "../../config/fireBase.config"
 
@@ -31,7 +27,7 @@ export default function HeaderHome() {
 
     return (
         <div className={styles.containerHeader}>
-            
+
 
             <div
                 onMouseEnter={() => setMenu(true)}
@@ -40,12 +36,20 @@ export default function HeaderHome() {
                 <div className={styles.containerImg}>
                     <img className={styles.img} src={user?.image} alt="userImg" referrerPolicy='no-referrer' />
                 </div>
-                <div className={!window.location.pathname.includes("/dashboard") ? styles.userName : ""}>
+
+
+                {window.innerWidth > 450 && <div className={!window.location.hash.includes("/dashboard") ? styles.userName : ""}>
                     <h3>{user?.name}</h3>
                     <p>role : {user?.role}</p>
-                </div>
+                </div>}
             </div>
-            {menu && <div className={styles.popupLogOut}
+
+            {menu && <motion.div
+                initial={{ opacity: 1, y: 100 }}
+                animate={{ opacity: 20, y: 1 }}
+                transition={{ duration: 0.7 }}
+
+                className={styles.popupLogOut}
                 onMouseEnter={() => setMenu(true)}
                 onMouseLeave={() => setMenu(false)}
             >
@@ -59,21 +63,21 @@ export default function HeaderHome() {
                         favorites
                     </p>
                 </NavLink>
-                <hr />
                 {user && user?.role === 'admin' && <>
-                        <NavLink to={"/dashboard"}>
-                            <p>
-                                dashboard
-                            </p>
-                        </NavLink>
-                        <hr />
-                    </>}
-                <NavLink>
+                    <hr />
+                    <NavLink to={"/dashboard"}>
+                        <p>
+                            dashboard
+                        </p>
+                    </NavLink>
+                    <hr />
+                </>}
+                <NavLink className={styles.logOut}>
                     <p onClick={handleLogOut}>
                         logOut
                     </p>
                 </NavLink>
-            </div>}
+            </motion.div>}
         </div>
     )
 }

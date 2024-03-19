@@ -68,9 +68,6 @@ function App() {
   }, [])
 
 
-
-
-
   return (
     <AnimatePresence >
       <div className="containerApp">
@@ -82,7 +79,7 @@ function App() {
 
         <div>
           {
-            currentSong && !window.location.pathname.includes("login")  && !window.location.pathname.includes('dashboard') && <Player
+            currentSong && !window.location.hash.includes("login")  && !window.location.hash.includes('dashboard') && <Player
               songs={songsPlayed} 
               albumSongs={albumSongs}
               setCurrentTime={setCurrentTime}
@@ -93,7 +90,7 @@ function App() {
             />
           }
 
-          {window.innerWidth < 450 &&    <NavBottom /> }
+          {window.innerWidth  < 701 && !window.location.hash.includes("login") && !window.location.hash.includes("dashboard")  &&  <NavBottom /> }
         
         </div>
       </div>
