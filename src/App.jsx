@@ -93,7 +93,7 @@ function App() {
             />
           }
 
-          {window.innerWidth < 400 &&    <NavBottom /> }
+          {window.innerWidth < 450 &&    <NavBottom /> }
         
         </div>
       </div>
