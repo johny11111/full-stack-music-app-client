@@ -175,6 +175,9 @@
     .HeaderBody p {
         font-size: 1.5rem;
     }
+    .containerBodyContent {
+        height: 33lvh;
+    }
 }
 
 

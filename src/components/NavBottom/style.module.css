@@ -1,0 +1,32 @@
+.containerNavBottom {
+    position: absolute;
+    width: 100lvw;
+    height: 8lvh;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.containerNavBottom a {
+    background-color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--textColor);
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--textColor);
+    border-left: 1px solid var(--textColor);
+    width: calc(100% /3);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.containerNavBottom :hover {
+    background: white;
+    opacity: 0.5;
+    color: black;
+    border-radius: 10px;
+
+}

@@ -1,7 +1,7 @@
 .containerHome {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    background: rgb(240, 240, 240);
+    background: rgb(0, 0, 0);
     max-height: 100lvh;
     max-width: 100lvw;
     position: relative;
@@ -138,7 +138,7 @@
 }
 
 .containerNavSide {
-    height: 96lvh;
+    height: 100lvh;
     width: 30lvw;
     background:var(--BgClient);
     padding: 1rem;
@@ -157,6 +157,17 @@
 }
 
 
+@media screen and (max-width: 500px) {
+  
+    .grid{
+        display: flex;
+        overflow: hidden;
+        height: 94lvh;
+    
+}
+
+}
+
 
 
 @media screen and (max-width: 700px) {
@@ -171,7 +182,7 @@
     .grid{
         display: flex;
         overflow: hidden;
-        height: 95lvh;
+        height: 100lvh;
     
 }
    

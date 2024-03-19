@@ -13,6 +13,7 @@ import { AnimatePresence } from 'framer-motion'
 import { validate } from './api';
 import Dashboard from './components/dashboards/Dashboard';
 import Player from './components/Player';
+import NavBottom from './components/NavBottom';
 
 
 function App() {
@@ -91,6 +92,9 @@ function App() {
               currentSongIndex={currentSongIndex}
             />
           }
+
+          {window.innerWidth < 400 &&    <NavBottom /> }
+        
         </div>
       </div>
     </AnimatePresence>

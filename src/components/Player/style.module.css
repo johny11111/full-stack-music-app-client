@@ -220,6 +220,7 @@
 
         grid-template-rows: calc(100% / 3);
         max-height: 13lvh;
+        bottom: 3rem;
     }
 
     .containerControls {
