@@ -33,10 +33,10 @@ export default function Login({ setAuth }) {
           if (user) {
             await user.getIdToken().then((token) => {
               validate(token).then((data) => {
-                dispatch({ type: reducerCases.SET_USER, user: data })
-
+               dispatch({ type: reducerCases.SET_USER, user: data })
+console.log(user);
               })
-              navigate("/", { replace: true });
+              navigate("/");
             })
           }
           else {

@@ -13,7 +13,7 @@ export const validate = async (token) => {
                 "Authorization": "Bearer " + token
             }
         })
-        return res;
+    return (await res).data.user
     } catch (err) {
 
     }
