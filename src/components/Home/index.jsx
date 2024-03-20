@@ -70,16 +70,16 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                         <Route path='/' element={<div className={styles.containerSongsH}>
 
                             <div className={styles.containerHomeContent}>
-                                <div style={{ "height": "78lvh" ,"overflowY" : "scroll" }} >
+                                <div style={{ "height": "78lvh" ,"overflowY" : "scroll" , "direction": "rtl" , "padding": "0.5rem" }} >
                                     {window.innerWidth < 701 && <User />}
-                                    <h3>top albums in spanish</h3>
+                                    <h3>אלבומים בספרדית</h3>
                                     <div className={styles.containerTitle}>
                                         {albumsInSpanish && albumsInSpanish.map((album, i) => (
                                             <AlbumCard key={album._id} album={album} i={i} />
                                         ))}
                                     </div>
 
-                                    <h3>albums in hebrew</h3>
+                                    <h3>אלבומים בעברית</h3>
                                     <div className={styles.containerTitle}>
 
                                         {albumsInHebrew && albumsInHebrew.map((album, i) => (

@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 import { motion } from 'framer-motion'
 
 
-const auth = getAuth(app); // או getAuth() אם אתה רוצה להשתמש באפליקציה שהוגדרה מראש
+const auth = getAuth(app); 
 
 
 
@@ -22,7 +22,7 @@ export default function HeaderHome() {
         auth.signOut().then(() => {
             window.localStorage.setItem("auth", "false")
         }).catch((e) => console.log(e));
-        Navigate("/login", { replace: true })
+        Navigate("/login")
     }
 
     return (

@@ -10,7 +10,6 @@ import { useStateValue } from '../../context/StateProvider';
 import { reducerCases } from '../../context/constants';
 import { validate } from '../../api';
 
-// import { BgLogin } from "../../assets/video"
 
 
 export default function Login({ setAuth }) {
@@ -35,7 +34,6 @@ export default function Login({ setAuth }) {
             await user.getIdToken().then((token) => {
               validate(token).then((data) => {
                 dispatch({ type: reducerCases.SET_USER, user: data })
-                // window.location.reload();
 
               })
               navigate("/", { replace: true });
