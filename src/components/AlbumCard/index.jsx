@@ -5,16 +5,13 @@ import { reducerCases } from '../../context/constants'
 import { Link, Navigate } from 'react-router-dom'
 import { motion } from "framer-motion"
 
-export default function AlbumCard({ album, i  , setMenuClicked ,menuClicked }) {
+export default function AlbumCard({ album, i }) {
     const [{ selectedAlbum }, dispatch] = useStateValue()
 
     
     
     useEffect(() => {
-        dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
-
-        if(!menuClicked)return
-        setMenuClicked(false)
+        dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })     
     }, [])
 
     const handleClick = () => {

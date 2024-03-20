@@ -17,7 +17,6 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
 
     const [{ albums, audioRef }, dispatch] = useStateValue();
-    const [menuClicked, setMenuClicked] = useState(false)
     const [albumsInSpanish, setAlbumsInSpanish] = useState(null)
     const [albumsInHebrew, setAlbumsInHebrew] = useState(null)
 
@@ -76,7 +75,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                                     <h3>top albums in spanish</h3>
                                     <div className={styles.containerTitle}>
                                         {albumsInSpanish && albumsInSpanish.map((album, i) => (
-                                            <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} menuClicked={menuClicked} />
+                                            <AlbumCard key={album._id} album={album} i={i} />
                                         ))}
                                     </div>
 
