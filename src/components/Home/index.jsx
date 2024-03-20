@@ -62,11 +62,11 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                     transition={{ duration: 0.7 }}
 
                     className={styles.containerNavSide}>
-                    <NavSide menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+                    <NavSide />
                 </motion.div>
                 <div className={styles.bodyContent}>
                     <Routes>
-                        <Route path='/search' element={<Search setMenuClicked={setMenuClicked} audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
+                        <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
                         <Route path='/' element={<div className={styles.containerSongsH}>
 
                             <div className={styles.containerHomeContent}>
@@ -83,7 +83,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                                     <div className={styles.containerTitle}>
 
                                         {albumsInHebrew && albumsInHebrew.map((album, i) => (
-                                            <AlbumCard key={album._id} album={album} i={i} setMenuClicked={setMenuClicked} menuClicked={menuClicked} />
+                                            <AlbumCard key={album._id} album={album} i={i} />
                                         ))}
 
                                     </div>
