@@ -2,7 +2,8 @@ export const filterByCategory = [
     {id: 1 , name: "Regatton" , value : "regatton"},
     {id: 2 , name: "Pop" , value : "pop"},
     {id: 3 , name: "Bachata" , value : "bachata"},
-    {id: 4 , name: "HipHop" , value : "hipHop"}
+    {id: 4 , name: "HipHop" , value : "hipHop"},
+    {id: 5 , name: "ישראלי ים תיכוני" , value : "ישראלי ים תיכוני"}
 ]
 
 
