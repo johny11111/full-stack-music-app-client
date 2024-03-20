@@ -98,6 +98,7 @@
     .containerUser {
         position: absolute;
         right: 0;
+        top: 0;
     }
 
     .logOut {
@@ -108,6 +109,12 @@
         color: white !important;
         font-weight: 500;
         width: 100%;
+    }
+
+    .containerHeader{
+        position: absolute ;
+        right: 0;
+        top: 0;
     }
 
 }

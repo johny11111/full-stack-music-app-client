@@ -66,12 +66,11 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                 </motion.div>
                 <div className={styles.bodyContent}>
                     <Routes>
+                        <Route path='/user' element={<User />} />
                         <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
                         <Route path='/' element={<div className={styles.containerSongsH}>
-
                             <div className={styles.containerHomeContent}>
                                 <div style={{ "height": "78lvh" ,"overflowY" : "scroll" , "direction": "rtl" , "padding": "0.5rem" }} >
-                                    {window.innerWidth < 701 && <User />}
                                     <h3>אלבומים בספרדית</h3>
                                     <div className={styles.containerTitle}>
                                         {albumsInSpanish && albumsInSpanish.map((album, i) => (
@@ -81,11 +80,9 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
                                     <h3>אלבומים בעברית</h3>
                                     <div className={styles.containerTitle}>
-
                                         {albumsInHebrew && albumsInHebrew.map((album, i) => (
                                             <AlbumCard key={album._id} album={album} i={i} />
                                         ))}
-
                                     </div>
                                 </div>
 

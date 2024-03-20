@@ -38,7 +38,7 @@ export default function HeaderHome() {
                 </div>
 
 
-                {window.innerWidth > 450 && <div className={!window.location.hash.includes("/dashboard") ? styles.userName : ""}>
+                { <div className={!window.location.hash.includes("/dashboard") ? styles.userName : ""}>
                     <h3>{user?.name}</h3>
                     <p>role : {user?.role}</p>
                 </div>}

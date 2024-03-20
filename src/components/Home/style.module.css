@@ -13,7 +13,7 @@
 }
 
 .containerSongsH h3 {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     color: var(--textColor);
     padding-left: 2rem;
 }
@@ -63,10 +63,10 @@
    
     max-width: 100%;
     gap: 1rem;
+    height: 50%;
     width: 100%;
-    padding: 1rem;
     display: flex;
-    justify-content: space-around;
+   
     color: rgb(121, 118, 118);
     overflow-x: scroll;
     /* background: linear-gradient(84deg, #772A22, #33120F); */
@@ -191,20 +191,24 @@
         width: 100%;
         height: 94lvh;
         overflow-y: scroll;
+       
     }
 
     .containerTitle {
         direction: rtl;
+        height: 42%;
+        overflow-y: hidden;
         justify-content: flex-start;
     }
 
-    .containerMenu {
+    /* .containerMenu {
         display: block;
         position: absolute;
         top: 1.4rem;
         right: 1.4rem;
         font-size: 2.2rem;
         color: var(--textColor);
-    }
+    } */
+
 
 }
