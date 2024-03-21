@@ -27,9 +27,34 @@ export default function DashboardNowSong() {
     const [progress, setProgress] = useState(0)
     const [isImage, setIsImage] = useState(true)
 
+
     const [audioUrl, setAudioUrl] = useState(null)
-     const [audioUploadingProgress, setAudioUploadingProgress] = useState(0)
+    const [audioUploadingProgress, setAudioUploadingProgress] = useState(0)
     const [audioLoading, setAudioLoading] = useState(false)
+
+
+    const [artistImageUploading, setArtistImageUploading] = useState(false)
+    const [artistImage, setArtistImage] = useState(null)
+
+
+
+
+    const [newArtistName, setNewArtistName] = useState("")
+    const [newArtistTwitter, setNewArtistTwitter] = useState("")
+    const [newArtistInstagram, setNewArtistInstagram] = useState("")
+
+
+
+
+    // state for create a new album
+
+    const [albumImage, setAlbumImage] = useState(null)
+    const [albumImageUploading, setAlbumImageUploading] = useState(false)
+
+    const [newAlbumName, setNewAlbumName] = useState("")
+    const [artistName, setArtistName] = useState("")
+
+
 
 
 
@@ -46,16 +71,71 @@ export default function DashboardNowSong() {
                 songUrl: audioUrl,
                 image: songImage,
             }
-            
-            const post = axios.post("https://full-stack-music-app-server.onrender.com/songs/save" , songToSave);
+
+            const post = axios.post("https://full-stack-music-app-server.onrender.com/songs/save", songToSave);
             setAudioLoading(false);
             setAudioUrl(null)
             setImageUploading(false);
 
-          return getAllSongs
+            return post
         }
-        
+
     }
+
+
+    // !save artist in DB
+    const saveArtist = async () => {
+
+        const artistRequest = {
+            name: newArtistName,
+            twitter: newArtistTwitter,
+            image: artistImage,
+            instagram: newArtistInstagram,
+        }
+
+        console.log(artistRequest);
+
+        const post = axios.post("https://full-stack-music-app-server.onrender.com/artists/save", artistRequest);
+
+        setArtistImageUploading(false);
+        setNewArtistName("")
+        setNewArtistTwitter("")
+        setNewArtistInstagram("")
+        setArtistImage(null)
+
+        return post
+
+
+    }
+
+
+    const saveAlbum = async () => {
+
+        const  albumRequest = {
+            name: newAlbumName,
+            artist: newArtistName,
+            image: albumImage,
+            language: languageSelected.value,
+        }
+
+        console.log(albumRequest);
+
+        const post = await axios.post("https://full-stack-music-app-server.onrender.com/albums/save", albumRequest);
+
+        if (post) {
+            setAlbumImageUploading(false);
+            setAlbumImage(false)
+            setNewAlbumName("")
+            setArtistName("")
+            return post
+        }
+
+
+
+
+
+    }
+
 
 
 
@@ -131,7 +211,7 @@ export default function DashboardNowSong() {
                                     <FileUploader updateState={setAudioUrl} setProgress={setAudioUploadingProgress} setImageUploading={setAudioLoading} isImage={false} />
                                 ) : (
                                     <div className={styles.containerImgCover}>
-                                        <audio src={audioUrl} controls  />
+                                        <audio src={audioUrl} controls />
 
                                         <button onClick={() => deleteFileObject(audioUrl, false)} className={styles.IconDel}>
                                             <MdDelete />
@@ -148,23 +228,60 @@ export default function DashboardNowSong() {
 
             {/* dashboard 2  */}
 
+
+
+
             <div className={styles.containerDash2}>
                 <div className={styles.containerBox}>
-                    <div className={styles.upImg2}>dash1</div>
-                    <div className={styles.upImg2}>  dash 2</div>
+                    <div className={styles.upImg2}>
+
+                        {artistImageUploading && <FileLoader progress={progress} />}
+                        {!artistImageUploading && (<>
+                            {!artistImage ? (
+                                <FileUploader updateState={setArtistImage} setProgress={setProgress} setImageUploading={setArtistImageUploading} isImage={isImage} />
+                            ) : (
+                                <div className={styles.containerImgCover}>
+                                    <img src={artistImage} alt="songImg" />
+
+                                    <button onClick={() => deleteFileObject(artistImage, "images")} className={styles.IconDel}>
+                                        <MdDelete />
+                                    </button>
+                                </div>
+                            )}
+                        </>)}
+
+                    </div>
+                    <div className={styles.upImg2}>
+                        {albumImageUploading && <FileLoader progress={progress} />}
+                        {!albumImageUploading && (<>
+                            {!albumImage ? (
+                                <FileUploader updateState={setAlbumImage} setProgress={setProgress} setImageUploading={setAlbumImageUploading} isImage={isImage} />
+                            ) : (
+                                <div className={styles.containerImgCover}>
+                                    <img src={albumImage} alt="songImg" />
+
+                                    <button onClick={() => deleteFileObject(songImage, "images")} className={styles.IconDel}>
+                                        <MdDelete />
+                                    </button>
+                                </div>
+                            )}
+                        </>)}
+                    </div>
                 </div>
                 <div className={styles.containerInputs}>
                     <div style={{ "display": 'flex', "flexDirection": 'column', "gap": "1rem" }}>
-                        <input type="text" placeholder='artist' />
-                        <input type="twitter" placeholder='twitter' />
-                        <input type="instagram" placeholder='instagram' />
-                        <button>send</button>
+                        <input onChange={(e) => setNewArtistName(e.target.value)} type="text" placeholder='artist' />
+                        <input onChange={(e) => setNewArtistTwitter(e.target.value)} type="twitter" placeholder='twitter' />
+                        <input onChange={(e) => setNewArtistInstagram(e.target.value)} type="instagram" placeholder='instagram' />
+                        <button onClick={saveArtist}>send</button>
                     </div>
 
                     <div style={{ "display": 'flex', "flexDirection": 'column', "marginTop": "1rem", "gap": "1rem" }}>
-                        <input type="text" placeholder='artist name' />
+                        <Filtered filterData={filterByLanguage} name={'language'} />
+                        <input value={newAlbumName} onChange={(e) => setNewAlbumName(e.target.value)} type="text" placeholder='album name' />
+                        <input value={newArtistName} onChange={(e) => setNewArtistName(e.target.value)} type="text" placeholder='artist' />
 
-                        <button>send</button>
+                        <button onClick={saveAlbum}>send</button>
                     </div>
 
                 </div>

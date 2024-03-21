@@ -8,12 +8,12 @@ const baseUrl = "https://full-stack-music-app-server.onrender.com/";
 
 export const validate = async (token) => {
     try {
-        const res = axios.get(`${baseUrl}users/login`, {
+        const res = await axios.get(`${baseUrl}users/login`, {
             headers: {
                 "Authorization": "Bearer " + token
             }
         })
-    return (await res).data.user
+    return  res.data.user
     } catch (err) {
 
     }
