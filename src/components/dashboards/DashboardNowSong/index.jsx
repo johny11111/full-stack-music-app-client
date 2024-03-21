@@ -127,6 +127,7 @@ export default function DashboardNowSong() {
             setAlbumImage(false)
             setNewAlbumName("")
             setArtistName("")
+            
             return post
         }
 
