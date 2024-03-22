@@ -8,7 +8,7 @@ import AlbumPage from '../AlbumPage';
 import { motion } from 'framer-motion'
 
 import AlbumCard from '../AlbumCard';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Search from '../Search';
 import User from "../User"
 export default function Home({ setScreenTime, screenTime, currentSongIndex, setCurrentSongIndex, setCurrentTime,
@@ -16,24 +16,34 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
 
 
-    const [{ albums, audioRef }, dispatch] = useStateValue();
+    const [{ user, albums, audioRef }, dispatch] = useStateValue();
     const [albumsInSpanish, setAlbumsInSpanish] = useState(null)
     const [albumsInHebrew, setAlbumsInHebrew] = useState(null)
 
+
     useEffect(() => {
+        if (user === null) {
+            <div style={{ "width": "100vw", "position": "absolute", "top": "0" , "height": "100vh" }}>hello world</div>
+        }
+    }, [user])
+
+    useEffect(() => {
+        console.log(user);
         async function fetchData() {
+            if (user === null) {
+                return <div style={{ "width": "100vw", "position": "absolute" }}>hello world</div>
+            }
             await getAllAlbums().then((data) => {
 
                 dispatch({ type: reducerCases.SET_ALBUMS, albums: data.album });
             });
         }
         fetchData()
-    }, []);
+    }, [user]);
 
     useEffect(() => {
         if (albums) {
             const filter = albums?.filter(album => album.language === 'spanish')
-            console.log(filter);
             setAlbumsInSpanish(filter)
 
             const filterHebrew = albums.filter(album => album.language === 'Hebrew')

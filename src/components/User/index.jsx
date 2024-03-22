@@ -13,11 +13,12 @@ export default function HeaderHome() {
     const [menu, setMenu] = useState(false)
 
     const auth = getAuth(app)
+    
     const handleLogOut = () => {
         auth.signOut().then(() => {
             window.localStorage.setItem("auth", "false")
         }).catch((e) => console.log(e));
-        Navigate("/login")
+        // Navigate("/login")
     }
 
     return (

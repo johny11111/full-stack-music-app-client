@@ -32,7 +32,7 @@ function App() {
   const [authState, setAuthState] = useState(false)
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
 
-  const [{ user, albumSongs, songs , currentSong , songsPlayed }, dispatch] = useStateValue()
+  const [{ user, albumSongs, songs, currentSong, songsPlayed }, dispatch] = useStateValue()
   const [currentTime, setCurrentTime] = useState(0);
 
   // ! use effect for authorization 
@@ -43,7 +43,7 @@ function App() {
           user.getIdToken().then((token) => {
             validate(token).then((data) => {
               try {
-                dispatch({ type: reducerCases.SET_USER, user: data.data.user });
+                dispatch({ type: reducerCases.SET_USER, user: data });
 
               } catch (e) { console.log(e); }
             })
@@ -52,12 +52,12 @@ function App() {
           setAuth(false);
           window.localStorage.setItem('auth', "false");
           dispatch({ type: reducerCases.SET_USER, user: null })
-          navigate("/login")
+          navigate("/login" )
         }
       })
     }
     fetchData()
-  }, [user])
+  }, [])
 
 
   useEffect(() => {
@@ -71,16 +71,26 @@ function App() {
   return (
     <AnimatePresence >
       <div className="containerApp">
-        <Routes>
-          <Route path='/login' element={<Login setAuth={setAuth} />} />
-          <Route path='/*' element={<Home currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} audioRef={audioRef} />} />
-          <Route path='/dashboard/*' element={<Dashboard />} />
-        </Routes>
+        {
+          user ? <Routes>
+            <Route path='/login' element={<Login setAuth={setAuth} />} />
+            <Route path='/*' element={<Home currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} audioRef={audioRef} />} />
+            <Route path='/dashboard/*' element={<Dashboard />} />
+
+          </Routes> : <Routes>
+            <Route path='/login' element={<Login setAuth={setAuth} />} />
+          </Routes>
+
+
+        }
+
+
+        {/* */}
 
         <div>
           {
-            currentSong && !window.location.hash.includes("login")  && !window.location.hash.includes('dashboard') && <Player
-              songs={songsPlayed} 
+            currentSong && !window.location.hash.includes("login") && !window.location.hash.includes('dashboard') && <Player
+              songs={songsPlayed}
               albumSongs={albumSongs}
               setCurrentTime={setCurrentTime}
               currentTime={currentTime}
@@ -90,8 +100,8 @@ function App() {
             />
           }
 
-          {window.innerWidth  < 701 && !window.location.hash.includes("login") && !window.location.hash.includes("dashboard")  &&  <NavBottom /> }
-        
+          {window.innerWidth < 701 && !window.location.hash.includes("login") && !window.location.hash.includes("dashboard") && <NavBottom />}
+
         </div>
       </div>
     </AnimatePresence>

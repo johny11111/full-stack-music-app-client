@@ -1,4 +1,6 @@
 import axios from "axios";
+// import { useStateValue } from "../context/StateProvider";
+// import { reducerCases } from "../context/constants";
 
 const baseUrl = "https://full-stack-music-app-server.onrender.com/";
 
@@ -11,9 +13,9 @@ export const validate = async (token) => {
                 "Authorization": "Bearer " + token
             }
         })
-    return  res.data.user
+        return res.data.user
     } catch (err) {
-
+        throw err
     }
 }
 
