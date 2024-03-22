@@ -29,7 +29,7 @@ function App() {
   const fireBaseAuth = getAuth(app)
   const navigate = useNavigate()
 
-  const [authState, setAuthState] = useState(false)
+  // const [authState, setAuthState] = useState(false)
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
 
   const [{ user, albumSongs, currentSong, songsPlayed }, dispatch] = useStateValue()
