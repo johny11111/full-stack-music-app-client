@@ -11,7 +11,6 @@ import { getAllSongs, getAllAlbums, getAllArtists } from '../../../api/index.js'
 
 
 import DashboardHome from '../DashboardHome';
-import DashboardArtist from '../DashboardArtist';
 import DashboardSongs from '../DashboardSongs';
 import DashboardUsers from '../DashboardUsers';
 import DashboardArtists from '../DashboardArtist';
@@ -71,7 +70,7 @@ export default function Dashboard() {
         <NavLink
           onClick={() => setActiveLink('home')}
           className={`${styles.navLink} ${activeLink === 'home' ? styles.active : ''}`}
-          to={"/dashboard"} // שינוי כאן
+          to={"/dashboard"} 
         >
           <GoHome className={styles.iconHome} />
         </NavLink>

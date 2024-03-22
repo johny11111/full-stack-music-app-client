@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './style.module.css';
 import { NavLink } from "react-router-dom"
 import { IoMdAddCircleOutline } from "react-icons/io";
@@ -12,8 +12,6 @@ export default function DashboardSongs() {
   const [{ songs }, dispatch] = useStateValue()
   const [selectedSong, setSelectedSong] = useState(null)
  
-
-
 
 
   return (

@@ -4,7 +4,7 @@ import { useStateValue } from '../../../context/StateProvider';
 import DashboardUserCard from '../DashboardUserCard';
 
 export default function DashboardUsers() {
-  const [{ users }, dispatch] = useStateValue()
+  const [{ users }] = useStateValue()
   
 
   return (

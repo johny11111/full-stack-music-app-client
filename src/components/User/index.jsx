@@ -5,11 +5,6 @@ import { NavLink, Navigate } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
 import { motion } from 'framer-motion'
 
-
-const auth = getAuth(app); 
-
-
-
 import { app } from "../../config/fireBase.config"
 
 
@@ -27,8 +22,6 @@ export default function HeaderHome() {
 
     return (
         <div className={styles.containerHeader}>
-
-
             <div
                 onMouseEnter={() => setMenu(true)}
                 onMouseLeave={() => setMenu(false)}
@@ -38,7 +31,7 @@ export default function HeaderHome() {
                 </div>
 
 
-                { <div className={!window.location.hash.includes("/dashboard") ? styles.userName : ""}>
+                {<div className={!window.location.hash.includes("/dashboard") ? styles.userName : ""}>
                     <h3>{user?.name}</h3>
                     <p>role : {user?.role}</p>
                 </div>}

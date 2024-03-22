@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import styles from './style.module.css';
 import { useStateValue } from '../../../context/StateProvider';
-import { reducerCases } from '../../../context/constants';
 import AlbumCard from '../../AlbumCard';
 
 export default function DashboardAlbums() {
-  const [{ albums }, dispatch] = useStateValue()
+  const [{ albums }] = useStateValue()
   const [selectedAlbum, setSelectedAlbum] = useState()
 
 

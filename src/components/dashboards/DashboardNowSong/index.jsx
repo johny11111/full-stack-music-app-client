@@ -4,8 +4,8 @@ import Filtered from '../../Filtered';
 
 import { BiCloudUpload } from 'react-icons/bi'
 import { MdDelete } from 'react-icons/md'
-import { getStorage, ref, getDownloadURL, uploadBytesResumable, deleteObject } from 'firebase/storage'
-import { getAllAlbums, getAllArtists, getAllSongs, saveNewAlbum, saveNewArtist, saveNewSong } from '../../../api'
+import { ref, getDownloadURL, uploadBytesResumable, deleteObject } from 'firebase/storage'
+import { getAllAlbums, getAllArtists } from '../../../api'
 
 import { storage } from '../../../config/fireBase.config'
 import { useStateValue } from '../../../context/StateProvider'
@@ -16,52 +16,41 @@ import { filterByCategory, filterByLanguage } from '../../../utils/utilsFunction
 import axios from 'axios';
 
 
-
 export default function DashboardNowSong() {
-
-    const [songName, setSongName] = useState('')
-    const [imageUploading, setImageUploading] = useState(false)
-    const [songImage, setSongImage] = useState(null)
     const [{ artists, albums, artistSelected, albumSongsSelected, languageSelected, selectedCategory }, dispatch] = useStateValue()
-
     const [progress, setProgress] = useState(0)
     const [isImage, setIsImage] = useState(true)
 
 
+    // state for create a new song
+
+    const [imageUploading, setImageUploading] = useState(false)
+    const [songName, setSongName] = useState('')
+    const [songImage, setSongImage] = useState(null)
     const [audioUrl, setAudioUrl] = useState(null)
     const [audioUploadingProgress, setAudioUploadingProgress] = useState(0)
     const [audioLoading, setAudioLoading] = useState(false)
 
 
+    // state for create a new artist
+
     const [artistImageUploading, setArtistImageUploading] = useState(false)
     const [artistImage, setArtistImage] = useState(null)
-
-
-
-
     const [newArtistName, setNewArtistName] = useState("")
     const [newArtistTwitter, setNewArtistTwitter] = useState("")
     const [newArtistInstagram, setNewArtistInstagram] = useState("")
-
-
 
 
     // state for create a new album
 
     const [albumImage, setAlbumImage] = useState(null)
     const [albumImageUploading, setAlbumImageUploading] = useState(false)
-
     const [newAlbumName, setNewAlbumName] = useState("")
     const [artistName, setArtistName] = useState("")
 
 
-
-
-
     const saveSong = async () => {
-
         if (artistSelected && albumSongsSelected && languageSelected && selectedCategory) {
-
             const songToSave = {
                 name: songName,
                 album: albumSongsSelected._id,
@@ -71,19 +60,23 @@ export default function DashboardNowSong() {
                 songUrl: audioUrl,
                 image: songImage,
             }
-
             const post = axios.post("https://full-stack-music-app-server.onrender.com/songs/save", songToSave);
-            setAudioLoading(false);
-            setAudioUrl(null)
-            setImageUploading(false);
 
-            return post
+            if (post) {
+                setAudioLoading(false);
+                setSongName("")
+                setAudioUrl(null)
+                setSongImage(null)
+                setImageUploading(false);
+
+                return post
+            }
         }
-
     }
 
 
-    // !save artist in DB
+    // save artist in DB
+
     const saveArtist = async () => {
 
         const artistRequest = {
@@ -93,32 +86,30 @@ export default function DashboardNowSong() {
             instagram: newArtistInstagram,
         }
 
-        console.log(artistRequest);
-
         const post = axios.post("https://full-stack-music-app-server.onrender.com/artists/save", artistRequest);
 
-        setArtistImageUploading(false);
-        setNewArtistName("")
-        setNewArtistTwitter("")
-        setNewArtistInstagram("")
-        setArtistImage(null)
+        if (post) {
+            setArtistImageUploading(false);
+            setNewArtistName("")
+            setNewArtistTwitter("")
+            setNewArtistInstagram("")
+            setArtistImage(null)
 
-        return post
-
+            return post
+        }
 
     }
 
 
+    // save album in DB
     const saveAlbum = async () => {
 
-        const  albumRequest = {
+        const albumRequest = {
             name: newAlbumName,
-            artist: newArtistName,
+            artist: artistName,
             image: albumImage,
             language: languageSelected.value,
         }
-
-        console.log(albumRequest);
 
         const post = await axios.post("https://full-stack-music-app-server.onrender.com/albums/save", albumRequest);
 
@@ -127,35 +118,28 @@ export default function DashboardNowSong() {
             setAlbumImage(false)
             setNewAlbumName("")
             setArtistName("")
-            
+
             return post
         }
-
-
-
-
-
     }
 
 
-
-
-
+    // request to load the albums and artist 
     useEffect(() => {
         if (!artists) {
             getAllArtists().then((data) => {
                 dispatch({ type: reducerCases.SET_ARTISTS, artists: data.artist })
             })
         }
-
         if (!albums) {
             getAllAlbums().then((data) => {
                 dispatch({ type: reducerCases.SET_ALBUMS, albums: data.album })
             })
-
         }
     }, [])
 
+
+    // delete imag/audio files 
     const deleteFileObject = (url, isImage) => {
         if (isImage) {
             setImageUploading(true)
@@ -224,13 +208,9 @@ export default function DashboardNowSong() {
                     </div>
                 </div>
                 <button onClick={saveSong} className={styles.button}>upload</button>
-
             </div>
 
             {/* dashboard 2  */}
-
-
-
 
             <div className={styles.containerDash2}>
                 <div className={styles.containerBox}>
@@ -276,11 +256,11 @@ export default function DashboardNowSong() {
                         <input onChange={(e) => setNewArtistInstagram(e.target.value)} type="instagram" placeholder='instagram' />
                         <button onClick={saveArtist}>send</button>
                     </div>
-
+                    {/* NEW ALBUM */}
                     <div style={{ "display": 'flex', "flexDirection": 'column', "marginTop": "1rem", "gap": "1rem" }}>
                         <Filtered filterData={filterByLanguage} name={'language'} />
                         <input value={newAlbumName} onChange={(e) => setNewAlbumName(e.target.value)} type="text" placeholder='album name' />
-                        <input value={newArtistName} onChange={(e) => setNewArtistName(e.target.value)} type="text" placeholder='artist' />
+                        <input value={artistName} onChange={(e) => setArtistName(e.target.value)} type="text" placeholder='artist' />
 
                         <button onClick={saveAlbum}>send</button>
                     </div>
@@ -290,6 +270,7 @@ export default function DashboardNowSong() {
         </div>
     )
 }
+
 
 export const FileLoader = ({ progress }) => {
     return (
@@ -315,8 +296,6 @@ export const FileUploader = ({ updateState, setProgress, setImageUploading, isIm
     const uploadFile = (e) => {
         setImageUploading(true)
         const updatedFile = e.target.files[0]
-
-        console.log(updatedFile);
 
         const storageRef = ref(storage, `${isImage ? "images" : "audio"}/${updatedFile.name}`)
 

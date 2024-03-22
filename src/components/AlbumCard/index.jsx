@@ -5,13 +5,13 @@ import { reducerCases } from '../../context/constants'
 import { Link, Navigate } from 'react-router-dom'
 import { motion } from "framer-motion"
 
-export default function AlbumCard({ album, i }) {
+export default function AlbumCard({ album }) {
     const [{ selectedAlbum }, dispatch] = useStateValue()
 
-    
-    
+
+
     useEffect(() => {
-        dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })     
+        dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
     }, [])
 
     const handleClick = () => {
@@ -20,7 +20,7 @@ export default function AlbumCard({ album, i }) {
 
     return (
         <div>
-          
+
             <motion.div
                 initial={{ opacity: 1, y: 90 }}
                 animate={{ opacity: 90, y: 1 }}

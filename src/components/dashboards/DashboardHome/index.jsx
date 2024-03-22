@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import styles from './style.module.css';
 import DashboardCard from '../DashboardCard.jsx';
 import { useStateValue } from '../../../context/StateProvider.jsx';
@@ -8,11 +7,8 @@ import { IoMdAlbums } from "react-icons/io";
 import { MdLibraryMusic } from "react-icons/md";
 
 
-
-
-
 function DashboardHome() {
-  const [{ users, songs, artists, albums }, dispatch] = useStateValue()
+  const [{ users, songs, artists, albums }] = useStateValue()
 
   return (
     <div className={styles.containerHome}>

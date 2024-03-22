@@ -22,30 +22,23 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
     useEffect(() => {
         async function fetchData() {
-
             await getAllAlbums().then((data) => {
 
                 dispatch({ type: reducerCases.SET_ALBUMS, albums: data.album });
             });
         }
         fetchData()
-
     }, []);
 
     useEffect(() => {
-
         if (albums) {
             const filter = albums?.filter(album => album.language === 'spanish')
             console.log(filter);
             setAlbumsInSpanish(filter)
 
-
             const filterHebrew = albums.filter(album => album.language === 'Hebrew')
             setAlbumsInHebrew(filterHebrew)
-
         }
-
-
     }, [albums])
 
 
@@ -70,7 +63,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                         <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
                         <Route path='/' element={<div className={styles.containerSongsH}>
                             <div className={styles.containerHomeContent}>
-                                <div style={{ "height": "78lvh" ,"overflowY" : "scroll" , "direction": "rtl" , "padding": "0.5rem" }} >
+                                <div style={{ "height": "78lvh", "overflowY": "scroll", "direction": "rtl", "padding": "0.5rem" }} >
                                     <h3>אלבומים בספרדית</h3>
                                     <div className={styles.containerTitle}>
                                         {albumsInSpanish && albumsInSpanish.map((album, i) => (
@@ -91,7 +84,6 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                         </div>} />
 
                         <Route path='/music/:id' element={<AlbumPage setScreenTime={setScreenTime} screenTime={screenTime} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} audioRef={audioRef} currentTime={currentTime} setCurrentTime={setCurrentTime} />} />
-
                     </Routes>
                 </div>
             </div>

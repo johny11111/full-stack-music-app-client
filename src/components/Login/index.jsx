@@ -62,7 +62,6 @@ export default function Login({ setAuth }) {
         <FcGoogle />
         login wite google
       </div>
-
     </div>
   )
 }

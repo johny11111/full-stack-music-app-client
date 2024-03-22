@@ -1,7 +1,6 @@
 import { reducerCases } from './constants';
 
 const reducer = (state, action) => {
-    /// console.log(" from reducer", state);
 
 
     switch (action.type) {
@@ -55,7 +54,7 @@ const reducer = (state, action) => {
                 ...state,
                 isPlaying: action.isPlaying,
             };
-        case reducerCases.SET_AUDIO_REF: // Add reducer case for setting audioRef
+        case reducerCases.SET_AUDIO_REF:
             return {
                 ...state,
                 audioRef: action.audioRef,

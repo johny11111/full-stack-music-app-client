@@ -11,12 +11,6 @@ export default function Filtered({ filterData, name }) {
   const [{ artistSelected, albumSongsSelected, languageSelected, selectedCategory }, dispatch] = useStateValue()
 
 
-// console.log("artistSelected" , artistSelected);
-// console.log("albumSongsSelected" , albumSongsSelected);
-// console.log("selectedCategory" , selectedCategory);
-// console.log("languageSelected" , languageSelected);
-
-
   const [chooseName, setChooseName] = useState(null)
   const [chooseMenu, setChooseMenu] = useState(false)
 
@@ -54,8 +48,6 @@ export default function Filtered({ filterData, name }) {
 
 
   }, [chooseName])
-
-
 
 
 

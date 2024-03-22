@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from "./style.module.css";
-import NavSide from '../NavSide';
-import HeaderHome from '../User';
 import { useStateValue } from '../../context/StateProvider';
-import { getAllAlbums, getAllSongs } from '../../api';
+import {getAllSongs } from '../../api';
 import { reducerCases } from '../../context/constants';
 import { FaPlayCircle } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
@@ -36,8 +34,8 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
     }, []);
 
 
-    
-// use effect to select the song from album
+
+    // use effect to select the song from album
     useEffect(() => {
         const filter = songs?.filter(song => song.album === selectedAlbum._id)
         dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: filter })
@@ -90,11 +88,10 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
     return (
         <div className={styles.containerHome}>
             <div className={styles.grid}>
-                <div className={ styles.bodyContent}>
+                <div className={styles.bodyContent}>
                     <div className={styles.containerSongsH}>
                         <div style={{ "overflow": "scroll", "width": "100%", "height": "98%" }}>
                             <div className={styles.HeaderBody}>
-                                {/* <div>  <HeaderHome /></div> */}
                                 <motion.div
                                     initial={{ opacity: 1, x: 100 }}
                                     animate={{ opacity: 100, x: 1 }}
@@ -102,7 +99,6 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                     style={{ "maxHeight": "100%", "display": "flex", "alignItems": "center", "fontSize": "3rem", "color": "white", "gap": "3rem" }}>
                                     <img className={styles.img} src={selectedAlbum?.image} alt="" />
                                     <p>{selectedAlbum?.name}</p>
-
                                 </motion.div>
                             </div>
                             <div className={styles.cover}></div>
@@ -129,10 +125,9 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                 <div className={styles.containerBodyContent}>
                                     {albumSongs && albumSongs.map((song, i) => (
                                         <motion.div
-                                                initial={{ opacity: 1, y: 100 }}
-                                                animate={{ opacity: 20, y: 1 }}
-                                                transition={{ duration: 0.7 }}
-                                            // className={styles.bodyContent}
+                                            initial={{ opacity: 1, y: 100 }}
+                                            animate={{ opacity: 20, y: 1 }}
+                                            transition={{ duration: 0.7 }}
                                             onClick={() => handleSongClick(song, i)}
                                             key={song?._id}
                                             className={styles.containerSongHome}

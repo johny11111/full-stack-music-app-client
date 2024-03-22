@@ -10,7 +10,7 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { CiVolumeHigh } from "react-icons/ci";
 
 const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, currentTime, setCurrentTime }) => {
-    const [{ isPlaying, album, currentSong }, dispatch] = useStateValue();
+    const [{ isPlaying, currentSong }, dispatch] = useStateValue();
     const [startAgain, setStartAgain] = useState(false);
 
     const [duration, setDuration] = useState(0);
@@ -42,9 +42,6 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
         }
 
     }, [currentSongIndex]);
-
-
-
 
     useEffect(() => {
         audioRef.current.currentTime = currentTime;
@@ -125,6 +122,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
         //     audioRef.current.removeEventListener('ended', handleEnded);
         // };
     }, [currentSongIndex, songs.length]);
+
 
 
     const playPauseHandler = async () => {

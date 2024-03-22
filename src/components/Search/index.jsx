@@ -14,10 +14,6 @@ export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex
   const [filter, setFilter] = useState([]);
   const [filteredAlbums, setFilteredAlbums] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [selectedSongSearch, setSelectedSongSearch] = useState();
-
-  // console.log(currentSong);
-
 
 
 
@@ -54,15 +50,12 @@ export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex
     dispatch({ type: reducerCases.SET_CURRENT_SONG, currentSong: song })
     audioRef.current.src = currentSong?.songUrl
     audioRef.current.play()
-    
   }
 
 
+
   return (
-
     <div className={styles.containerSearch}>
-
-
       <div className={styles.containerInputSearch}>
         <input onChange={searchSongs} value={searchValue} type="text" placeholder='search songs' />
       </div>

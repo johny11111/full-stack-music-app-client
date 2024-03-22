@@ -6,36 +6,35 @@ import { reducerCases } from '../../../context/constants';
 import { useStateValue } from '../../../context/StateProvider';
 
 export default function DashboardUserCard({ user }) {
-  const [{users},dispatch] = useStateValue()
+  const [{ users }, dispatch] = useStateValue()
 
   const [isMemberSelected, setIsMemberSelected] = useState('');
 
-const updateUserRole = (userId, newRole) => {
-  // עדכון תפקיד המשתמש בשרת
-  changUserRole(userId, newRole)
-    .then((res) => {
-      if (res) {
-        // אם העדכון בשרת הצליח, עדכן את רשימת המשתמשים בסטייט
-        dispatch({ type: reducerCases.UPDATE_USER_ROLE, userId, newRole });
+  const updateUserRole = (userId, newRole) => {
 
-        // בקש מחדש את רשימת המשתמשים ועדכן אותה בסטייט
-        getAllUsers()
-          .then((data) => {
-            dispatch({ type: reducerCases.SET_USERS, users: data.data });
-          })
-          .catch((error) => {
-            console.error('Error fetching updated user list:', error);
-          });
-      } else {
-        console.error('Failed to update user role on server.');
-      }
-    })
-    .catch((error) => {
-      console.error('Error updating user role:', error);
-    });
-};
+    changUserRole(userId, newRole)
+      .then((res) => {
+        if (res) {
 
-  
+          dispatch({ type: reducerCases.UPDATE_USER_ROLE, userId, newRole });
+
+          getAllUsers()
+            .then((data) => {
+              dispatch({ type: reducerCases.SET_USERS, users: data.data });
+            })
+            .catch((error) => {
+              console.error('Error fetching updated user list:', error);
+            });
+        } else {
+          console.error('Failed to update user role on server.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating user role:', error);
+      });
+  };
+
+
   const handleRoleClick = () => {
     setIsMemberSelected(!isMemberSelected);
   };
