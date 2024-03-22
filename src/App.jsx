@@ -32,7 +32,7 @@ function App() {
   const [authState, setAuthState] = useState(false)
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
 
-  const [{ user, albumSongs, songs, currentSong, songsPlayed }, dispatch] = useStateValue()
+  const [{ user, albumSongs, currentSong, songsPlayed }, dispatch] = useStateValue()
   const [currentTime, setCurrentTime] = useState(0);
 
   // ! use effect for authorization 

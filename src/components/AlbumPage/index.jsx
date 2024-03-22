@@ -7,6 +7,7 @@ import { FaPlayCircle } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
 import { MdOutlineLineStyle } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
+import { CgMusic } from "react-icons/cg";
 import { motion } from 'framer-motion';
 
 export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audioRef, currentTime, setCurrentTime }) {
@@ -97,7 +98,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                     animate={{ opacity: 100, x: 1 }}
                                     transition={{ duration: 1.2 }}
                                     style={{ "maxHeight": "100%", "display": "flex", "alignItems": "center", "fontSize": "3rem", "color": "white", "gap": "3rem" }}>
-                                    <img className={styles.img} src={selectedAlbum?.image} alt="" />
+                                   {selectedAlbum.image !== "none" ?  <img className={styles.img} src={selectedAlbum?.image} alt="song" /> : <div><CgMusic style={{"fontSize" : "5rem"}} /></div>  }
                                     <p>{selectedAlbum?.name}</p>
                                 </motion.div>
                             </div>

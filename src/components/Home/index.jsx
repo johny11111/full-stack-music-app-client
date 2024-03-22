@@ -28,7 +28,6 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
     }, [user])
 
     useEffect(() => {
-        console.log(user);
         async function fetchData() {
             if (user === null) {
                 return <div style={{ "width": "100vw", "position": "absolute" }}>hello world</div>

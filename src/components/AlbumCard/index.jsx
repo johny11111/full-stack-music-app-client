@@ -4,6 +4,7 @@ import { useStateValue } from '../../context/StateProvider'
 import { reducerCases } from '../../context/constants'
 import { Link, Navigate } from 'react-router-dom'
 import { motion } from "framer-motion"
+import { CgMusic } from "react-icons/cg";
 
 export default function AlbumCard({ album }) {
     const [{ selectedAlbum }, dispatch] = useStateValue()
@@ -13,6 +14,8 @@ export default function AlbumCard({ album }) {
     useEffect(() => {
         dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
     }, [])
+
+   
 
     const handleClick = () => {
         dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
@@ -31,7 +34,9 @@ export default function AlbumCard({ album }) {
                     key={album._id}
                     onClick={handleClick}
                     className={styles.containerSongDash}>
-                    <img className={styles.img} src={album.image} alt="song" />
+                        {album.image !== "none" ?  <img className={styles.img} src={album.image} alt="song" /> : <div><CgMusic style={{"fontSize" : "5rem"}} /></div>  }
+                 
+
                     <p>{album.name}</p>
                 </Link>}
             </motion.div>
