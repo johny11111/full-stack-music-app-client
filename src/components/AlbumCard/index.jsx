@@ -32,7 +32,7 @@ export default function AlbumCard({ album, i }) {
                     onClick={handleClick}
                     className={styles.containerSongDash}>
                     <img className={styles.img} src={album.image} alt="song" />
-                    <p>album:{album.name}</p>
+                    <p>{album.name}</p>
                 </Link>}
             </motion.div>
 
