@@ -35,7 +35,7 @@ export default function Login({ setAuth }) {
               validate(token).then((data) => {
                 dispatch({ type: reducerCases.SET_USER, user: data })
               })
-              navigate("/");
+              navigate("/main");
             })
           }
 

@@ -10,3 +10,14 @@
     gap: 1rem;
 }
 
+.loading{
+    height: 100lvh;
+    width: 100lvw;
+    font-size: 3rem;
+    color: var(--textColor);
+    background-color: var(--BgClient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

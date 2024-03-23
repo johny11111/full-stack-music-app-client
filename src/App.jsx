@@ -52,7 +52,7 @@ function App() {
           setAuth(false);
           window.localStorage.setItem('auth', "false");
           dispatch({ type: reducerCases.SET_USER, user: null })
-          navigate("/login" )
+          navigate("/login")
         }
       })
     }
@@ -62,7 +62,7 @@ function App() {
 
   useEffect(() => {
     if (window.localStorage.getItem('auth') === 'true') {
-      navigate("/", { replace: true })
+      navigate("/main", { replace: true })
 
     }
   }, [])
@@ -74,11 +74,17 @@ function App() {
         {
           user ? <Routes>
             <Route path='/login' element={<Login setAuth={setAuth} />} />
-            <Route path='/*' element={<Home currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} audioRef={audioRef} />} />
+            <Route path='/main/*' element={<Home currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} audioRef={audioRef} />} />
             <Route path='/dashboard/*' element={<Dashboard />} />
 
           </Routes> : <Routes>
             <Route path='/login' element={<Login setAuth={setAuth} />} />
+            <Route path='/*' element={<div className='loading'>
+              <div>
+                <p>loading...</p>
+              </div>
+
+            </div>} />
           </Routes>
 
 
@@ -89,7 +95,7 @@ function App() {
 
         <div>
           {
-            currentSong && !window.location.hash.includes("login") && !window.location.hash.includes('dashboard') && <Player
+           user && currentSong && !window.location.hash.includes("login") && !window.location.hash.includes('dashboard') && <Player
               songs={songsPlayed}
               albumSongs={albumSongs}
               setCurrentTime={setCurrentTime}
@@ -100,7 +106,7 @@ function App() {
             />
           }
 
-          {window.innerWidth < 701 && !window.location.hash.includes("login") && !window.location.hash.includes("dashboard") && <NavBottom />}
+          {user && window.innerWidth < 701 && !window.location.hash.includes("login") && !window.location.hash.includes("dashboard") && <NavBottom />}
 
         </div>
       </div>

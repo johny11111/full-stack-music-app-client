@@ -9,20 +9,20 @@ import { FaRegUser } from "react-icons/fa";
 export default function NavBottom() {
     return (
         <div className={styles.containerNavBottom}>
-            <NavLink to={"/library"}>
+            <NavLink to={"main/library"}>
                 <IoLibrary className={styles.Icon}   />
                 <p>library</p>
             </NavLink>
-            <NavLink to={"/search"}>
+            <NavLink to={"main/search"}>
                 <IoSearch className={styles.Icon} />
                 <p>search</p>
             </NavLink>
-            <NavLink to={"/"}>
+            <NavLink to={"/main"}>
                 <IoHomeOutline className={styles.Icon} />
                 <p>home</p>
 
             </NavLink>
-            <NavLink to={"/user"}>
+            <NavLink to={"main/user"}>
                 <FaRegUser className={styles.Icon} />
                 <p>user</p>
 

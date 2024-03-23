@@ -30,7 +30,7 @@ export default function AlbumCard({ album }) {
                 transition={{ duration: 1 }}
             >
                 {selectedAlbum && <Link
-                    to={`/music/${selectedAlbum._id}`}
+                    to={`/main/music/${selectedAlbum._id}`}
                     key={album._id}
                     onClick={handleClick}
                     className={styles.containerSongDash}>

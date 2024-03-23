@@ -30,10 +30,10 @@ export default function NavSide() {
           animate={{ opacity: 90, x: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <li><NavLink to={"/"}>home</NavLink></li>
+          <li><NavLink to={"/main"}>home</NavLink></li>
           {/* <li><NavLink to={"/music"}>music</NavLink></li> */}
-          <li><NavLink to={"/search"}>search</NavLink></li>
-          <li><NavLink to={"/library"}>library</NavLink></li>
+          <li><NavLink to={"/main/search"}>search</NavLink></li>
+          <li><NavLink to={"/main/library"}>library</NavLink></li>
         </motion.ul>
       </div>
     </motion.div>

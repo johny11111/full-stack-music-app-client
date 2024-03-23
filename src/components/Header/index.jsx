@@ -9,10 +9,10 @@ export default function Header() {
             <div className={styles.containerNavSide}>
                 <div >
                     <ul className={styles.containerUl}>
-                        <li><NavLink to={"/"}>home</NavLink></li>
-                        <li><NavLink to={"/music"}>music</NavLink></li>
-                        <li><NavLink to={"/premium"}>premium</NavLink></li>
-                        <li><NavLink to={"/contact"}>contact us</NavLink></li>
+                        <li><NavLink to={"/main"}>home</NavLink></li>
+                        <li><NavLink to={"/main/music"}>music</NavLink></li>
+                        {/* <li><NavLink to={"/premium"}>premium</NavLink></li> */}
+                        <li><NavLink to={"/main/contact"}>contact us</NavLink></li>
                     </ul>
                 </div>
             </div>
