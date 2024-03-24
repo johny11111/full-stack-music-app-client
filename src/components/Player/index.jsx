@@ -221,6 +221,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                 </div>
             </div>
 
+            
             <div className={styles.containerRVolume}>
                 <CiVolumeHigh className={styles.volumeIcon} />
                 {window.innerWidth > 500 && <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
