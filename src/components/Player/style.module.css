@@ -1,41 +1,61 @@
+
 .fullScreenPlayer {
     position: absolute;
+    animation: slideIn 1s forwards; 
     top: 0;
- display: flex;
- flex-direction: column;
- justify-content: space-around;
- align-items: center;
+    padding: 1rem;
+    margin:  0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+    align-items: center;
     color: var(--textColor);
     gap: 1rem;
-
     height: 100lvh;
     width: 100lvw;
-    background-color: rgb(45, 36, 36);
+    background: linear-gradient(180deg, #351310, #515151)
 }
 
+.fullScreenPlayer.closing {
+    animation: slideOut 0.5s forwards; 
+  }
+
+
+.fullScreenPlayer .boxImg  {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+
+}
 .fullScreenPlayer .boxImg img {
     align-self: center;
     justify-self: center;
     height: 250px;
     width: 250px;
 }
+
 .fullScreenPlayer .containerControls {
     display: flex;
     align-items: center;
     width: 100%;
- justify-content: space-between;
-  
+    justify-content: space-between;
+
 }
-.currentTimeCon{
+
+.currentTimeFullS {
     display: flex;
     width: 100%;
     justify-content: space-around;
 }
 
-.currentTimeCon input{
-width: 70%;
+.currentTimeFullS input {
+    width: 70%;
 }
 
+/* .containerCurrentTimeFullS{
+    max-width: 100%;
+} */
 
 
 .containerPlayer {
@@ -192,16 +212,6 @@ width: 70%;
 }
 
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .rotatingImg {
     transition: ease-in-out 1s;
     animation: rotate 5s linear infinite;
@@ -216,9 +226,6 @@ width: 70%;
         display: grid;
         bottom: 0rem;
         padding: 1rem;
-        /* min-height: 20lvh; */
-        /* grid-template-rows: calc(100% / 5);
-        grid-template-columns: calc(100% / 1); */
     }
 
     .containerControls {
@@ -257,10 +264,10 @@ width: 70%;
 
 @media screen and (max-width:500px) {
     .containerPlayer {
-
+        animation: slideOut 1s forwards; 
         grid-template-rows: calc(100% / 3);
         max-height: 13lvh;
-        bottom: 3rem;
+        bottom: 3.7rem;
     }
 
     .containerControls {
@@ -283,3 +290,34 @@ width: 70%;
     }
 
 }
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@keyframes slideIn {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }

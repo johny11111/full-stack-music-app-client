@@ -193,12 +193,18 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                 <div style={{ "display": "flex", "flexWrap": "wrap", "maxWidth": "50%" }}>
 
                     {
+                         window.innerWidth < 500 && fullScreenPlayer &&
+                        <h2 style={{"fontSize":"1.4rem" , "width": "100%"}}>{songs[currentSongIndex]?.name}</h2>
+                    }
 
-                        window.innerWidth > 500 &&
+                    {
+
+                         window.innerWidth > 500 &&
                         <h2>{songs[currentSongIndex]?.name}</h2>
                     }
                 </div>
             </div>
+
             <div className={styles.containerControls}>
                 <div className={styles.containerPlayerIcons}>
                     <MdAddCircleOutline className={styles.addToLibrary}
@@ -212,16 +218,29 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                     <span onClick={() => setStartAgain((prev) => !prev)}><TfiReload className={startAgain ? styles.isActive : ""} /></span>
                 </div>
 
-                <div className={styles.containerCurrentTime}>
-                    {window.innerWidth > 500 && msToMinutes(screenDuration)}
+                <div className={styles.containerRVolume}>
+                    <CiVolumeHigh className={styles.volumeIcon} />
+                    {<input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
+
+
+                    }
+                    <audio ref={audioRef} className='audio' src={songs[currentSongIndex]?.songUrl} autoPlay={false} />
+
+                    {!fullScreenPlayer ? <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem", }} onClick={() => setFullScreenPlayer(prev => !prev)}> <FaAngleUp /></div> : <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" }} onClick={() => setFullScreenPlayer(prev => !prev)}>  <FaAngleDown className={styles.icon} /></div>}
+
+
+                </div>
+
+
+                <div className={fullScreenPlayer ? styles.currentTimeFullS : styles.containerCurrentTime}>
+                    {<span>{msToMinutes(screenDuration)}</span>}
 
                     <input type="range" min={0} max={duration} value={screenTime} onChange={currentTimeChange} className={styles.inputCurrentTime} />
 
-                    {window.innerWidth > 500 && msToMinutes(screenTime)}
+                    {<span>{msToMinutes(screenTime)}</span>}
                 </div>
             </div>
 
-            
             <div className={styles.containerRVolume}>
                 <CiVolumeHigh className={styles.volumeIcon} />
                 {window.innerWidth > 500 && <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
