@@ -12,8 +12,12 @@ export default function AlbumCard({ album }) {
 
 
     useEffect(() => {
+        if(selectedAlbum) {
+            return
+        }
         dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
-    }, [])
+        
+    },[])
 
    
 
