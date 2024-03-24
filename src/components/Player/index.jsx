@@ -242,11 +242,6 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
             </div>
 
             <div className={styles.containerRVolume}>
-                <CiVolumeHigh className={styles.volumeIcon} />
-                {window.innerWidth > 500 && <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
-
-
-                }
                 <audio ref={audioRef} className='audio' src={songs[currentSongIndex]?.songUrl} autoPlay={false} />
 
                 {!fullScreenPlayer ? <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" ,  }} onClick={() => setFullScreenPlayer(prev => !prev)}> <FaAngleUp /></div> : <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" }} onClick={() => setFullScreenPlayer(prev => !prev)}>  <FaAngleDown className={styles.icon} /></div>}
