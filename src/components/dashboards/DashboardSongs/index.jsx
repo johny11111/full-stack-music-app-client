@@ -38,17 +38,17 @@ export default function DashboardSongs() {
             </span>
           </p>
         </div>
-        <div className={styles.containerSongsDash}>
+        <div className={styles.containerSongsDashboard}>
           {songs && songs.map((song, i) => (
-
             <div
             onClick={()=> setSelectedSong(song)}
               key={song._id}
               className={styles.containerSongDash}>
+                {i + 1}
               <img className={styles.imgDash} src={song.image} alt="song" />
+
               <h3>{song.name}</h3>
               <p>category: {song.category}</p>
-
             </div>
           ))}
           {selectedSong && <div className={styles.player}>

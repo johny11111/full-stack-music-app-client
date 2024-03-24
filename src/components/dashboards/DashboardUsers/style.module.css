@@ -1,15 +1,16 @@
 .containerTable {
     display: flex;
-   align-items: center;
-   justify-content: center;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
     background: transparent;
-    border:1px solid #709ae7;
+    border: 1px solid #709ae7;
     border-radius: 1rem;
-    overflow-x: auto; 
+    overflow-x: auto;
 }
 
 .containerTable table {
-    width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
     padding-top: 1rem;
 }
@@ -25,13 +26,13 @@
 .containerTable table td {
     padding: 0.5rem;
     text-align: center;
-   
-    border: 1px solid #709ae7; 
-} 
+
+    border: 1px solid #709ae7;
+}
 
 .containerTable table thead th {
     padding-top: 1rem;
-    background-color:  #709ae7; 
+    background-color: #709ae7;
 }
 
 .count {
@@ -40,6 +41,7 @@
 
 /* סגנון למסך ברוחב של עד 600px */
 @media screen and (max-width: 600px) {
+
     .containerTable table th,
     .containerTable table td {
         padding: 0.2rem;

@@ -62,7 +62,7 @@ export default function Dashboard() {
 
 
   return (
-    <div>
+    <div >
       <User />
       <Header />
 

@@ -1,13 +1,9 @@
-/* .containerSongs {
-    padding-top: 2rem;
-    background: silver;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.containerSongs {
+margin-top: 1rem;
+
     width: 100%;
     height: 100%;
-} */
+}
 
 .containerSearch {
     width: 100%;
@@ -16,7 +12,7 @@
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    
+
 }
 
 .input {
@@ -55,30 +51,40 @@
     border-radius: 5px;
     color: #709ae7;
     font-size: 1rem;
-    
+
 }
 
 
-.iIcon{
+.iIcon {
     font-size: 2rem;
     color: red;
 }
 
-.addIcon{
-font-size: 2rem;
+.addIcon {
+    font-size: 2rem;
 }
 
 .navIcon:hover {
     cursor: pointer;
     box-shadow: inset;
-    
-   
+
+
     border: 2px solid rgb(240 240 240);
 }
 
 /* body  */
 
-/* .containerBody {
+.containerSongsDashboard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* justify-content: center; */
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.containerBody {
     position: relative;
     width: 90%;
     height: 70vh;
@@ -86,24 +92,17 @@ font-size: 2rem;
     padding: 1rem;
     border: 1px solid rgb(113, 110, 110);
     border-radius: 5px;
-} */
+}
 
 .count {
-    padding-bottom: 1rem;
     position: absolute;
-    top: 12.4rem;
+    top: 0rem;
+   
     left: 4;
 }
 
-.containerSongsDash {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-evenly;
-    overflow: hidden;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    max-height: 64vh;
-}
+
+
 .containerSongDash {
 
     width: 100%;
@@ -114,14 +113,12 @@ font-size: 2rem;
     /* box-shadow: 0px 0px 21px -4px rgba(92, 91, 92, 1); */
     border-radius: 12px;
     background-size: cover;
-    overflow: hidden;
     padding: 1rem;
-
     position: relative;
 
 }
 
-.containerSongDash:hover{
+.containerSongDash:hover {
     border: 1px solid #709ae7;
     cursor: pointer;
     background-color: silver;
@@ -137,7 +134,7 @@ font-size: 2rem;
 
 ::-webkit-scrollbar {
     width: 0.4rem;
-  
+
 }
 
 ::-webkit-scrollbar-thumb {
@@ -161,5 +158,3 @@ font-size: 2rem;
     width: 80vw;
     /* background-color: brown; */
 }
-
-

@@ -89,7 +89,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
     return (
         <div className={styles.containerHome}>
             <div className={styles.grid}>
-                <div className={styles.bodyContent}>
+                <div className={styles.bodyContentAlbumPage}>
                     <div className={styles.containerSongsH}>
                         <div style={{ "overflow": "scroll", "width": "100%", "height": "98%" }}>
                             <div className={styles.HeaderBody}>
