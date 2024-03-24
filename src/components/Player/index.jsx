@@ -8,10 +8,14 @@ import { reducerCases } from '../../context/constants';
 import { TfiReload } from "react-icons/tfi";
 import { MdAddCircleOutline } from "react-icons/md";
 import { CiVolumeHigh } from "react-icons/ci";
+import { FaAngleUp } from "react-icons/fa6";
+import { FaAngleDown } from "react-icons/fa";
+
 
 const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, currentTime, setCurrentTime }) => {
     const [{ isPlaying, currentSong }, dispatch] = useStateValue();
     const [startAgain, setStartAgain] = useState(false);
+    const [fullScreenPlayer, setFullScreenPlayer] = useState(false)
 
     const [duration, setDuration] = useState(0);
     const [currentVolume, setCurrentVolume] = useState(0.4);
@@ -181,7 +185,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
     }
 
     return (
-        <div className={styles.containerPlayer}>
+        <div className={fullScreenPlayer ? styles.fullScreenPlayer : styles.containerPlayer}>
 
             <div className={styles.boxImg}>
                 <img
@@ -195,7 +199,6 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                     }
                 </div>
             </div>
-
             <div className={styles.containerControls}>
                 <div className={styles.containerPlayerIcons}>
                     <MdAddCircleOutline className={styles.addToLibrary}
@@ -218,13 +221,16 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                 </div>
             </div>
 
-            <div className={styles.containerRVolume}> 
+            <div className={styles.containerRVolume}>
                 <CiVolumeHigh className={styles.volumeIcon} />
-                {window.innerWidth > 500 && <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />  
-                
-                
+                {window.innerWidth > 500 && <input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
+
+
                 }
                 <audio ref={audioRef} className='audio' src={songs[currentSongIndex]?.songUrl} autoPlay={false} />
+
+                {!fullScreenPlayer ? <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" ,  }} onClick={() => setFullScreenPlayer(prev => !prev)}> <FaAngleUp className= "" /></div> : <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" }} onClick={() => setFullScreenPlayer(prev => !prev)}>  <FaAngleDown className={styles.icon} /></div>}
+
 
             </div>
         </div>

@@ -1,3 +1,43 @@
+.fullScreenPlayer {
+    position: absolute;
+    top: 0;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+    color: var(--textColor);
+    gap: 1rem;
+
+    height: 100lvh;
+    width: 100lvw;
+    background-color: rgb(45, 36, 36);
+}
+
+.fullScreenPlayer .boxImg img {
+    align-self: center;
+    justify-self: center;
+    height: 250px;
+    width: 250px;
+}
+.fullScreenPlayer .containerControls {
+    display: flex;
+    align-items: center;
+    width: 100%;
+ justify-content: space-between;
+  
+}
+.currentTimeCon{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.currentTimeCon input{
+width: 70%;
+}
+
+
+
 .containerPlayer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -229,7 +269,8 @@
         flex-direction: column;
 
     }
-    .containerCurrentTime{
+
+    .containerCurrentTime {
         display: none;
     }
 
@@ -237,8 +278,8 @@
         display: flex;
         align-items: normal;
         justify-content: center;
-    
-    
+
+
     }
-    
+
 }
