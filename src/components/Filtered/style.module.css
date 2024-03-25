@@ -42,3 +42,16 @@
 .containerItems:hover{
     background-color: silver;
 }
+
+
+@media screen and (max-width:450px) {
+    .containerFiltered{
+        max-width: 75%;
+       
+       font-weight: 300;
+        /* width: 90%; */
+    }
+    .containerFiltered p {
+        font-size: 12px;
+    }
+}

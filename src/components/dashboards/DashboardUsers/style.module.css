@@ -1,7 +1,16 @@
-.containerTable {
+.containerUsers{
+    max-width: 90lvw;
+    max-height: 75lvh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+
+.containerTable {
+    display: flex;
+    align-items: center;
     max-width: 100%;
     background: transparent;
     border: 1px solid #709ae7;
@@ -10,7 +19,9 @@
 }
 
 .containerTable table {
+
     max-width: 100%;
+    max-height: 50lvh;
     border-collapse: collapse;
     padding-top: 1rem;
 }

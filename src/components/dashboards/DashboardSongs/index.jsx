@@ -47,7 +47,7 @@ export default function DashboardSongs() {
                 {i + 1}
               <img className={styles.imgDash} src={song.image} alt="song" />
 
-              <h3>{song.name}</h3>
+              <h3>{`${song.name.slice(0 ,14)}...` }</h3>
               <p>category: {song.category}</p>
             </div>
           ))}

@@ -254,7 +254,7 @@ export default function DashboardNowSong() {
                         <input onChange={(e) => setNewArtistName(e.target.value)} type="text" placeholder='artist' />
                         <input onChange={(e) => setNewArtistTwitter(e.target.value)} type="twitter" placeholder='twitter' />
                         <input onChange={(e) => setNewArtistInstagram(e.target.value)} type="instagram" placeholder='instagram' />
-                        <button onClick={saveArtist}>send</button>
+                        <button className={styles.btnSend} onClick={saveArtist}>send</button>
                     </div>
                     {/* NEW ALBUM */}
                     <div style={{ "display": 'flex', "flexDirection": 'column', "marginTop": "1rem", "gap": "1rem" }}>
@@ -262,7 +262,7 @@ export default function DashboardNowSong() {
                         <input value={newAlbumName} onChange={(e) => setNewAlbumName(e.target.value)} type="text" placeholder='album name' />
                         <input value={artistName} onChange={(e) => setArtistName(e.target.value)} type="text" placeholder='artist' />
 
-                        <button onClick={saveAlbum}>send</button>
+                        <button className={styles.btnSend} onClick={saveAlbum}>send</button>
                     </div>
 
                 </div>
