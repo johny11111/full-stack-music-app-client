@@ -1,6 +1,11 @@
 .containerArtists{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     padding-top: 2rem;
-    background: silver;
-    width: 70vw;
-    height: 100%;
+    gap: 1rem;
+    width: 100lvw;
+    height: 75.6lvh;
+    overflow-y: scroll;
 }

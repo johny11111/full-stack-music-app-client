@@ -47,8 +47,7 @@
 @media screen and (max-width:450px) {
     .containerFiltered{
         max-width: 75%;
-       
-       font-weight: 300;
+       font-weight: 500;
         /* width: 90%; */
     }
     .containerFiltered p {

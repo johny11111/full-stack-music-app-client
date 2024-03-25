@@ -48,7 +48,7 @@
     min-height: 170px;
     width: 100%;
     height: 100%;
-    border: 1px solid #709ae7;
+    border: 1px solid var(--primaryColor);
     border-radius: 5px;
     color: black;
     display: flex;
@@ -101,21 +101,21 @@
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    border: 1px solid #709ae7;
+    border: 1px solid var(--primaryColor);
 }
 
 .containerInputs input {
     width: 100%;
     padding: 0.6rem 1.3rem;
     background: bottom;
-    border: 1px solid #709ae7;
+    border: 1px solid var(--primaryColor);
     border-radius: 5px;
 }
 
 button {
     max-width: 100%;
     padding: 0.4rem 1rem;
-    background-color: cornflowerblue;
+    background-color: var(--primaryColor);
     border: none;
     border-radius: 5px;
 }
@@ -147,7 +147,7 @@ button:hover {
     bottom: 10px;
     border-radius: 50%;
     font-size: 1.3rem;
-    color: #ff0000;
+    color: var(--deleteColor);
 }
 
 
@@ -157,7 +157,7 @@ button:hover {
     min-width: 20px;
     display: flex;
     flex-direction: column;
-    background-color: #ff0000;
+    background-color: var(--deleteColor);
     animation: ping 1s infinite;
     border-radius: 50%;
     align-items: center;
@@ -170,7 +170,7 @@ button:hover {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: #ff0000;
+    background-color: var(--deleteColor);
     border-radius: 50%;
     filter: blur(10px);
 }
