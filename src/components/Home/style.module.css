@@ -7,6 +7,13 @@
     position: relative;
 }
 
+.homeBodyContent{
+    height: 80lvh;
+    overflow-y: scroll;
+    direction: rtl;
+    padding: 0.5rem;
+}
+
 .containerMenu {
     display: none;
 
@@ -58,6 +65,17 @@
     padding: 1rem;
     border-bottom: 1px solid #D75146
 }
+
+.containerArtist{
+    display: flex;
+    overflow-x: scroll;
+    padding: 1.2rem;
+}
+
+.containerArtist p{
+   color: var(--textColor);
+}
+
 
 .containerTitle {
    
@@ -164,6 +182,10 @@
         overflow: hidden;
         height: 94lvh;
 
+    }
+
+    .homeBodyContent{
+        height: 77lvh;
     }
 
 }

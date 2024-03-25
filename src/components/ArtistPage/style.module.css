@@ -1,0 +1,13 @@
+.containerArtistPage{
+ color: var(--textColor);
+text-align: center;
+padding: 1rem;
+}
+
+.containerAlbumArtistPage{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
