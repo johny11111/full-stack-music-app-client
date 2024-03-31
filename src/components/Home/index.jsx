@@ -27,7 +27,6 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
         if (!artistSelected) {
             async function fetchData() {
                 await getAllArtists().then((data) => {
-                    console.log(data);
                     dispatch({ type: reducerCases.SET_ARTISTS, artists: data.artist });
                 });
             }

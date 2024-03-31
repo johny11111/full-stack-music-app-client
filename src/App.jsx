@@ -1,6 +1,6 @@
 import './App.css';
 import './style/style.css'
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';
 import { useEffect, useState, useRef } from 'react';
@@ -77,6 +77,10 @@ function App() {
             <Route path='/dashboard/*' element={<Dashboard />} />
 
           </Routes> : <Routes>
+            <Route path='/notAuthorized' element={<div className='loading'>
+              <p> user not Authorized </p>
+              <Link to="/login"> return to login page </Link>
+            </div>} />
             <Route path='/login' element={<Login setAuth={setAuth} />} />
             <Route path='/*' element={<div className='loading'>
               <div>

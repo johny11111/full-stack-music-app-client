@@ -2,8 +2,14 @@ import axios from "axios";
 // import { useStateValue } from "../context/StateProvider";
 // import { reducerCases } from "../context/constants";
 
-const baseUrl = "https://full-stack-music-app-server.onrender.com/";
 
+//const baseUrl = "https://full-stack-music-app-server.onrender.com/";
+const baseUrl = "http://localhost:4000/";
+
+
+// export const login = () => {
+
+// }
 
 
 export const validate = async (token) => {
@@ -15,7 +21,7 @@ export const validate = async (token) => {
         })
         return res.data.user
     } catch (err) {
-         console.log(err);
+        console.log(err);
     }
 }
 

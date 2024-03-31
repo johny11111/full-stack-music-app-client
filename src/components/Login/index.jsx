@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styles from "./style.module.css";
 import { app } from '../../config/fireBase.config';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
@@ -13,6 +13,8 @@ import { validate } from '../../api';
 
 
 export default function Login({ setAuth }) {
+
+  const userRef = useRef()
 
   const [{ user }, dispatch] = useStateValue()
 
@@ -31,11 +33,18 @@ export default function Login({ setAuth }) {
 
         fireBaseAuth.onAuthStateChanged(async (user) => {
           if (user) {
+
             await user.getIdToken().then((token) => {
               validate(token).then((data) => {
+                setAuth(false)
+                if (data === undefined) {
+                  window.localStorage.setItem('auth', "false")
+                  return navigate("/notAuthorized");
+
+                }
                 dispatch({ type: reducerCases.SET_USER, user: data })
+                navigate("/main");
               })
-              navigate("/main");
             })
           }
 
@@ -49,6 +58,11 @@ export default function Login({ setAuth }) {
     }))
   }
 
+  const LoginWiteMail = () => {
+    console.log(userRef.current.value);
+
+  }
+
   return (
     <div className={styles.containerLogin}>
       {/* <video src={BgLogin}
@@ -58,9 +72,9 @@ export default function Login({ setAuth }) {
         loop
         className={styles.videoBg}
       /> */}
-      <div onClick={loginWithGoogle} className={styles.containerConnect}>
+      <div className={styles.containerConnect}>
         <FcGoogle />
-        login wite google
+        <p onClick={loginWithGoogle} >  sign in with google</p>
       </div>
     </div>
   )
