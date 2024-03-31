@@ -13,7 +13,7 @@ import { FaAngleDown } from "react-icons/fa";
 
 
 const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, currentTime, setCurrentTime }) => {
-    const [{ isPlaying, currentSong }, dispatch] = useStateValue();
+    const [{ user , isPlaying, currentSong }, dispatch] = useStateValue();
     const [startAgain, setStartAgain] = useState(false);
     const [fullScreenPlayer, setFullScreenPlayer] = useState(false)
 
@@ -181,7 +181,10 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
     };
 
     const addToLibrary = (e) => {
-        console.log(e);
+       console.log(user._id);
+       console.log(e);
+
+        
     }
 
     return (
