@@ -13,6 +13,7 @@ import { validate } from './api';
 import Dashboard from './components/dashboards/Dashboard';
 import Player from './components/Player';
 import NavBottom from './components/NavBottom';
+import AnAuthorizedUser from './components/AnAuthorizedUser';
 
 
 function App() {
@@ -77,10 +78,7 @@ function App() {
             <Route path='/dashboard/*' element={<Dashboard />} />
 
           </Routes> : <Routes>
-            <Route path='/notAuthorized' element={<div className='loading'>
-              <p> user not Authorized </p>
-              <Link to="/login"> return to login page </Link>
-            </div>} />
+            <Route path='/notAuthorized' element={<AnAuthorizedUser />} />
             <Route path='/login' element={<Login setAuth={setAuth} />} />
             <Route path='/*' element={<div className='loading'>
               <div>
@@ -91,6 +89,8 @@ function App() {
           </Routes>
 
 
+
+
         }
 
 
@@ -98,7 +98,7 @@ function App() {
 
         <div>
           {
-           user && currentSong && !window.location.hash.includes("login") && !window.location.hash.includes('dashboard') && <Player
+            user && currentSong && !window.location.hash.includes("login") && !window.location.hash.includes('dashboard') && <Player
               songs={songsPlayed}
               albumSongs={albumSongs}
               setCurrentTime={setCurrentTime}
