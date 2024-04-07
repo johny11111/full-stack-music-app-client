@@ -18,7 +18,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
 
 
-    const [{ user, albums, audioRef, artists, artistSelected }, dispatch] = useStateValue();
+    const [{ user, albums, audioRef, artists, artistSelected, currentSong }, dispatch] = useStateValue();
     const [albumsInSpanish, setAlbumsInSpanish] = useState(null)
     const [albumsInHebrew, setAlbumsInHebrew] = useState(null)
     const [filterLibrary, setFilterLibrary] = useState(null)
@@ -84,7 +84,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                         <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
                         <Route path='/' element={<div className={styles.containerSongsH}>
                             <div className={styles.containerHomeContent}>
-                                <div className={styles.homeBodyContent} >
+                                <div className={currentSong ? styles.homeBodyContent : styles.homeBodyContentPlay}  >
 
                                     <h3>שירים שאהבתי</h3>
                                     <div>

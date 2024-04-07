@@ -203,6 +203,12 @@
     .homeBodyContent {
         height: 77lvh;
     }
+    .homeBodyContentPlay{
+        height: 90lvh;
+        overflow-y: scroll;
+        direction: rtl;
+        padding: 0.5rem;
+    }
 
 }
 
