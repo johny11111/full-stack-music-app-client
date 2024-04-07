@@ -7,9 +7,8 @@ import { reducerCases } from '../../context/constants';
 import ArtistCard from "../ArtistCard"
 import AlbumPage from '../AlbumPage';
 import { motion } from 'framer-motion'
-
 import AlbumCard from '../AlbumCard';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes , Link } from 'react-router-dom';
 import Search from '../Search';
 import User from "../User"
 import ArtistPage from '../ArtistPage';
@@ -22,7 +21,10 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
     const [{ user, albums, audioRef, artists, artistSelected }, dispatch] = useStateValue();
     const [albumsInSpanish, setAlbumsInSpanish] = useState(null)
     const [albumsInHebrew, setAlbumsInHebrew] = useState(null)
+    const [filterLibrary, setFilterLibrary] = useState(null)
+   
 
+    
 
     useEffect(() => {
         if (!artistSelected) {
@@ -53,9 +55,11 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
 
             const filterHebrew = albums.filter(album => album.language === 'Hebrew')
             setAlbumsInHebrew(filterHebrew)
+
+            const filterPlaylist = albums.filter(album => album.name === 'playlist')
+            setFilterLibrary(filterPlaylist)
         }
     }, [albums])
-
 
 
 
@@ -82,6 +86,12 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                             <div className={styles.containerHomeContent}>
                                 <div className={styles.homeBodyContent} >
 
+                                    <h3>שירים שאהבתי</h3>
+                                    <div>
+                                        {filterLibrary && <AlbumCard album={filterLibrary[0]} />}
+                                    </div>
+
+                                    
                                     <h3>אלבומים בספרדית</h3>
                                     <div className={styles.containerTitle}>
                                         {albumsInSpanish && albumsInSpanish.map((album, i) => (

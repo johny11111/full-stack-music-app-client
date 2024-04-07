@@ -10,7 +10,6 @@ export default function AlbumCard({ album }) {
     const [{ selectedAlbum }, dispatch] = useStateValue()
 
 
-
     useEffect(() => {
         if(selectedAlbum) {
             return

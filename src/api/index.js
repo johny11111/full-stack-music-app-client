@@ -4,6 +4,8 @@ import axios from "axios";
 
 
 const baseUrl = "https://full-stack-music-app-server.onrender.com/";
+// const baseUrl = "http://localhost:4000/";
+
 
 
 
@@ -107,4 +109,14 @@ export const changUserRole = async (userId, role) => {
     }
 }
 
+
+export const updatePlaylist = async (userId, playlist) => {
+    try {
+        const response = await axios.put(`${baseUrl}users/updatePlaylist/${userId}`, { data: playlist  })
+        return response
+
+    } catch (error) {
+        return console.log(error);;
+    }
+}
 

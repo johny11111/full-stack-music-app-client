@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from "./style.module.css";
 import { useStateValue } from '../../context/StateProvider';
-import {getAllSongs } from '../../api';
+import { getAllSongs } from '../../api';
 import { reducerCases } from '../../context/constants';
 import { FaPlayCircle } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
@@ -12,8 +12,9 @@ import { motion } from 'framer-motion';
 
 export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audioRef, currentTime, setCurrentTime }) {
 
-    const [{ songs, selectedAlbum, albumSongs, currentSong, isPlaying }, dispatch] = useStateValue();
+    const [{ user, songs, selectedAlbum, albumSongs, currentSong, isPlaying }, dispatch] = useStateValue();
     const [selectedSong, setSelectedSong] = useState(null);
+    const [playlists, setPlaylists] = useState(null)
 
 
 
@@ -40,19 +41,32 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
     useEffect(() => {
         const filter = songs?.filter(song => song.album === selectedAlbum._id)
         dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: filter })
+
+        if (selectedAlbum.name === "playlist") {
+            dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: user.playlist })
+            console.log(albumSongs);
+        }
     }, [songs])
+
+
 
 
 
 
     // click on song 
     const handleSongClick = async (song, index) => {
+    
         if (songs) {
             const filter = songs.filter(song => song.album === selectedAlbum._id)
             if (filter) {
                 dispatch({ type: reducerCases.SET_SONGS_PLAYED, songsPlayed: filter })
                 dispatch({ type: reducerCases.SET_CURRENT_SONG, currentSong: song })
             }
+            if(selectedAlbum.name === "playlist"){
+                dispatch({ type: reducerCases.SET_SONGS_PLAYED, songsPlayed: user.playlist })
+                dispatch({ type: reducerCases.SET_CURRENT_SONG, currentSong: song })
+            }
+    
         }
 
         if (audioRef.current && currentSong && currentSong._id === song._id) {
@@ -98,7 +112,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                     animate={{ opacity: 100, x: 1 }}
                                     transition={{ duration: 1.2 }}
                                     style={{ "maxHeight": "100%", "display": "flex", "alignItems": "center", "fontSize": "3rem", "color": "white", "gap": "3rem" }}>
-                                   {selectedAlbum.image !== "none" ?  <img className={styles.img} src={selectedAlbum?.image} alt="song" /> : <div><CgMusic style={{"fontSize" : "5rem"}} /></div>  }
+                                    {selectedAlbum.image !== "none" && selectedAlbum.image !== null ? <img className={styles.img} src={selectedAlbum?.image} alt="song" /> : <div><CgMusic style={{ "fontSize": "5rem" }} /></div>}
                                     <p>{selectedAlbum?.name}</p>
                                 </motion.div>
                             </div>

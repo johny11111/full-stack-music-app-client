@@ -131,6 +131,10 @@
 
 }
 
+.addToLibrary{
+    color: green;
+}
+
 
 .inputCurrentTime::-webkit-slider-thumb {
     -webkit-animation: none;

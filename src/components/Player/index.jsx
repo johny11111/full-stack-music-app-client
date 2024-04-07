@@ -10,10 +10,11 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { CiVolumeHigh } from "react-icons/ci";
 import { FaAngleUp } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
+import { updatePlaylist } from '../../api';
 
 
 const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, currentTime, setCurrentTime }) => {
-    const [{ user , isPlaying, currentSong }, dispatch] = useStateValue();
+    const [{ user, isPlaying, currentSong }, dispatch] = useStateValue();
     const [startAgain, setStartAgain] = useState(false);
     const [fullScreenPlayer, setFullScreenPlayer] = useState(false)
 
@@ -21,7 +22,22 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
     const [currentVolume, setCurrentVolume] = useState(0.4);
     const [screenTime, setScreenTime] = useState(0);
     const [screenDuration, setScreenDuration] = useState(0);
+    const [existInLibrary, setExistInLibrary] = useState(false)
 
+
+    useEffect(() => {
+    const filter = user.playlist.filter(song => song._id === currentSong._id)
+   
+
+        if (filter.length > 0) {
+            console.log(filter);
+          return  setExistInLibrary(true)
+        }
+       else{
+
+       return    setExistInLibrary(false)
+       }
+    }, [currentSong])
 
     const msToMinutes = (duration) => {
         const min = Math.floor(duration / 60);
@@ -180,11 +196,11 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
         await setScreenDuration(audioRef.current.duration - screenTime)
     };
 
-    const addToLibrary = (e) => {
-       console.log(user._id);
-       console.log(e);
-
-        
+    const addToLibrary = async (playlist) => {
+        const id = user._id
+        await updatePlaylist(id, playlist).then((res) => {
+            return res
+        })
     }
 
     return (
@@ -196,13 +212,13 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                 <div style={{ "display": "flex", "flexWrap": "wrap", "maxWidth": "50%" }}>
 
                     {
-                         window.innerWidth < 500 && fullScreenPlayer &&
-                        <h2 style={{"fontSize":"1.4rem" , "width": "100%"}}>{songs[currentSongIndex]?.name}</h2>
+                        window.innerWidth < 500 && fullScreenPlayer &&
+                        <h2 style={{ "fontSize": "1.4rem", "width": "100%" }}>{songs[currentSongIndex]?.name}</h2>
                     }
 
                     {
 
-                         window.innerWidth > 500 &&
+                        window.innerWidth > 500 &&
                         <h2>{songs[currentSongIndex]?.name}</h2>
                     }
                 </div>
@@ -210,7 +226,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
 
             <div className={styles.containerControls}>
                 <div className={styles.containerPlayerIcons}>
-                    <MdAddCircleOutline className={styles.addToLibrary}
+                    <MdAddCircleOutline className={existInLibrary ? styles.addToLibrary : ""}
                         onClick={() => addToLibrary(currentSong)}
                     />
                     {<span onClick={prevSongHandler}><TbPlayerTrackPrevFilled className={styles.icon} /></span>}
@@ -224,7 +240,6 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
                 <div className={styles.containerRVolume}>
                     <CiVolumeHigh className={styles.volumeIcon} />
                     {<input type="range" min={0} max={1} step={0.1} value={currentVolume} onChange={volumeChangeHandler} className={styles.inputVolume} />
-
 
                     }
                     <audio ref={audioRef} className='audio' src={songs[currentSongIndex]?.songUrl} autoPlay={false} />
@@ -247,7 +262,7 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
             <div className={styles.containerRVolume}>
                 <audio ref={audioRef} className='audio' src={songs[currentSongIndex]?.songUrl} autoPlay={false} />
 
-                {!fullScreenPlayer ? <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" ,  }} onClick={() => setFullScreenPlayer(prev => !prev)}> <FaAngleUp /></div> : <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" }} onClick={() => setFullScreenPlayer(prev => !prev)}>  <FaAngleDown className={styles.icon} /></div>}
+                {!fullScreenPlayer ? <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem", }} onClick={() => setFullScreenPlayer(prev => !prev)}> <FaAngleUp /></div> : <div style={{ "position": "absolute", "top": "0.3rem", "right": "1.5rem" }} onClick={() => setFullScreenPlayer(prev => !prev)}>  <FaAngleDown className={styles.icon} /></div>}
 
 
             </div>

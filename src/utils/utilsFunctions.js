@@ -11,6 +11,7 @@ export const filterByLanguage = [
     {id: 1 , name: "Spanish" , value : "spanish"},
     {id: 2 , name: "English" , value : "english"},
     {id: 3 , name: "Hebrew" , value : "hebrew"},
+    {id: 4 , name: "All" , value : "all"},
 
 ]
 
