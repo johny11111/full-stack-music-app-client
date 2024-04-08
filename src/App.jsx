@@ -14,6 +14,7 @@ import Dashboard from './components/dashboards/Dashboard';
 import Player from './components/Player';
 import NavBottom from './components/NavBottom';
 import AnAuthorizedUser from './components/AnAuthorizedUser';
+import Loading from './components/Loading';
 
 
 function App() {
@@ -80,12 +81,7 @@ function App() {
           </Routes> : <Routes>
             <Route path='/notAuthorized' element={<AnAuthorizedUser />} />
             <Route path='/login' element={<Login setAuth={setAuth} />} />
-            <Route path='/*' element={<div className='loading'>
-              <div>
-                <p>loading...</p>
-              </div>
-
-            </div>} />
+            <Route path='/*' element={<Loading />} />
           </Routes>
 
 
