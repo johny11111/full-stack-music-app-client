@@ -2,13 +2,13 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     background: rgb(0, 0, 0);
-    max-height: 100lvh;
-    max-width: 100lvw;
+    max-height: 100dvh;
+    max-width: 100dvw;
     position: relative;
 }
 
 .homeBodyContent {
-    height: 80lvh;
+    height: 80dvh;
     overflow-y: scroll;
     direction: rtl;
     padding: 0.5rem;
@@ -31,7 +31,7 @@
     display: grid;
     grid-template-columns: 0.4fr 1fr;
     width: 100%;
-    max-height: 100lvh;
+    max-height: 100dvh;
     background-color: black;
 }
 
@@ -41,7 +41,7 @@
     overflow: hidden;
     flex-wrap: wrap;
     overflow-y: scroll;
-    max-height: 100lvh;
+    max-height: 100dvh;
     width: 95%;
     background-color: var(--BgClient);
     border-radius: 10px;
@@ -161,9 +161,9 @@
     position: absolute;
     bottom: 0;
     left: 40%;
-    width: 50vw;
+    width: 50dvw;
     height: auto;
-    max-width: 100lvw;
+    max-width: 100dvw;
 }
 
 .audio {
@@ -173,8 +173,8 @@
 }
 
 .containerNavSide {
-    height: 95lvh;
-    width: 30lvw;
+    height: 95dvh;
+    width: 30dvw;
     background: var(--BgClient);
     padding: 1rem;
     overflow: hidden;
@@ -197,15 +197,15 @@
     .grid {
         display: flex;
         overflow: hidden;
-        height: 94lvh;
+        height: 94dvh;
 
     }
 
     .homeBodyContent {
-        height: 77lvh;
+        height: 77dvh;
     }
     .homeBodyContentPlay{
-        height: 90lvh;
+        height: 90dvh;
         overflow-y: scroll;
         direction: rtl;
         padding: 0.5rem;
@@ -228,13 +228,13 @@
     .grid {
         display: flex;
         overflow: hidden;
-        height: 94lvh;
+        height: 94dvh;
 
     }
 
     .containerHomeContent {
         width: 100%;
-        height: 94lvh;
+        height: 94dvh;
         overflow-y: scroll;
 
     }

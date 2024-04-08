@@ -12,8 +12,8 @@
     align-items: center;
     color: var(--textColor);
     gap: 1rem;
-    height: 100lvh;
-    width: 100lvw;
+    height: 100dvh;
+    width: 100ldvw;
     background: linear-gradient(180deg, #351310, #515151)
 }
 
@@ -270,12 +270,12 @@
     .containerPlayer {
         animation: slideOut 1s forwards; 
         grid-template-rows: calc(100% / 3);
-        max-height: 13lvh;
+        max-height: 13dvh;
         bottom: 3.7rem;
     }
 
     .containerControls {
-        width: 40lvw;
+        width: 40dvw;
         display: flex;
         flex-direction: column;
 

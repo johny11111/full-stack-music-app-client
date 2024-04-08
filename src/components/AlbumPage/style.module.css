@@ -16,7 +16,7 @@
 
 
 .containerBodyContent {
-    height: 55lvh;
+    height: 55dvh;
     overflow-y: scroll;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .containerTitle {
-    height: 45lvh;
+    height: 45dvh;
     max-width: 100%;
     width: 100%;
     overflow-y: scroll;
@@ -115,7 +115,7 @@
     position: absolute;
     bottom: 0;
     left: 40%;
-    width: 50vw;
+    width: 50dvw;
     height: auto;
 }
 
@@ -126,8 +126,8 @@
 }
 
 .containerNavSide {
-    height: 96vh;
-    width: 30vw;
+    height: 96dvh;
+    width: 30dvw;
     background: #515151;
     padding: 1rem;
     overflow: hidden;
@@ -139,11 +139,11 @@
 
 @media screen and (max-width: 700px) {
     .containerTitle {
-        height: 60lvh;
+        height: 60dvh;
     }
 
     .containerBodyContent {
-        height: 59lvh;
+        height: 59dvh;
     }
 
     .HeaderBody p {
@@ -156,7 +156,7 @@
 
 
     .containerBodyContent {
-        height: 65lvh;
+        height: 65dvh;
     }
 
     .containerTitle {
@@ -176,7 +176,7 @@
         font-size: 1.5rem;
     }
     .containerBodyContent {
-        height: 53lvh;
+        height: 53dvh;
     }
 }
 
@@ -184,11 +184,11 @@
 @media screen and (min-width: 500px) {
 
     .containerTitle {
-        height: 55lvh;
+        height: 55dvh;
     }
 
     .containerBodyContent {
-        height: 48lvh;
+        height: 48dvh;
     }
 
 
