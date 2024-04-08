@@ -86,6 +86,12 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                             <div className={styles.containerHomeContent}>
                                 <div className={currentSong ? styles.homeBodyContent : styles.homeBodyContentPlay}  >
 
+                                <h3>אמנים</h3>
+                                    <div className={styles.containerArtist}>
+                                        {artists && artists.map((artist, i) => <ArtistCard key={artist._id} artist={artist} i={i} />
+                                        )}
+                                    </div>
+
                                     <h3>שירים שאהבתי</h3>
                                     <div>
                                         {filterLibrary && <AlbumCard album={filterLibrary[0]} />}
@@ -99,11 +105,6 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                                         ))}
                                     </div>
 
-                                    <h3>אמנים</h3>
-                                    <div className={styles.containerArtist}>
-                                        {artists && artists.map((artist, i) => <ArtistCard key={artist._id} artist={artist} i={i} />
-                                        )}
-                                    </div>
 
                                     <h3>אלבומים בעברית</h3>
                                     <div className={styles.containerTitle}>
