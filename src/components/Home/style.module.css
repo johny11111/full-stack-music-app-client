@@ -69,7 +69,7 @@
 .containerArtist {
     display: flex;
     overflow-x: scroll;
-   
+    padding: 1rem;
 }
 
 .containerArtist p {
@@ -87,6 +87,7 @@
 
     color: rgb(121, 118, 118);
     overflow-x: scroll;
+    overflow-y: hidden;
     /* background: linear-gradient(84deg, #772A22, #33120F); */
 }
 

@@ -44,7 +44,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
 
         if (selectedAlbum.name === "playlist") {
             dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: user.playlist })
-            console.log(albumSongs);
+         
         }
     }, [songs])
 

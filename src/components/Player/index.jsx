@@ -199,6 +199,9 @@ const Player = ({ songs, currentSongIndex, setCurrentSongIndex, audioRef, curren
     const addToLibrary = async (playlist) => {
         const id = user._id
         await updatePlaylist(id, playlist).then((res) => {
+            if (res){
+                setExistInLibrary(true)
+            }
             return res
         })
     }

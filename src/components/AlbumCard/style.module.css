@@ -24,3 +24,20 @@
     width: 100%;
     height: 75%;
 }
+
+.containerPlaylist{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+    height: 50px;
+    background:var(--primaryColor);
+    border-radius: 10px;
+    overflow: hidden;
+    color: var(--textColor);
+    text-decoration: none;
+}
+
+.containerPlaylist p {
+    font-size: 2rem;
+}
