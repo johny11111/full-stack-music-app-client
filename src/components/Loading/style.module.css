@@ -10,66 +10,72 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-25%);
 }
 
 .Loading span {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     color: var(--textColor);
-    transition: all 4s ease-in-out;
-    animation: animateLoading 3s infinite;
+    transition: all 2s ease-in-out;
+    animation: animateLoading 4s infinite;
     z-index: 1;
 }
 
 
-.Loading span:nth-child(1){
+.Loading span:nth-child(1) {
     animation-delay: 0.1s;
     color: antiquewhite;
+
 }
 
-.Loading span:nth-child(2){
+.Loading span:nth-child(2) {
     animation-delay: 0.2s;
-    color: aquamarine;
+    color: var(--textColor);
 }
 
-.Loading span:nth-child(3){
+.Loading span:nth-child(3) {
     animation-delay: 0.3s;
     color: bisque;
 }
 
-.Loading span:nth-child(4){
+.Loading span:nth-child(4) {
     animation-delay: 0.4s;
     color: azure;
 }
 
-.Loading span:nth-child(5){
+.Loading span:nth-child(5) {
     animation-delay: 0.5s;
     color: whitesmoke;
+    transform: rotate(45deg);
 }
 
-.Loading span:nth-child(6){
+.Loading span:nth-child(6) {
     animation-delay: 0.6s;
-    color: blanchedalmond;
+    color: aliceblue;
 }
 
-.Loading span:nth-child(7){
+.Loading span:nth-child(7) {
     animation-delay: 0.7s;
-    color: yellow;
-    
+    color: var(--secundColor);
+
 }
 
 
 @keyframes animateLoading {
     0% {
-        transform: translateY(0);
+        transform: translateY(0px);
         margin-left: 0;
         color: black;
     }
 
     25% {
-        transform: translateY(-15px);
-        margin-left: 10px;
+        transform: translateY(-50px);
+        padding: 1rem;
+        padding-top: 0.5rem;
+        box-shadow: 5px 5px 5px 5px rgba(57, 36, 36, 0.2);
+        /* border-radius: 100%; */
+       
     }
 
     100% {
