@@ -1,7 +1,7 @@
 .containerApp {
     height: auto;
-    max-width: 100lvw;
-    max-height: 100lvh;
+    max-width: 100dvw;
+    max-height: 100dvh;
 
 }
 
@@ -10,21 +10,10 @@
     gap: 1rem;
 }
 
-.loading{
-    height: 100lvh;
-    width: 100lvw;
-    font-size: 2rem;
-    color: var(--textColor);
-    background-color: var(--BgClient);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-}
 
-.loading a {
+/* .loading a {
     text-decoration: none;
     color: black;
     cursor: pointer;
-}
+} */

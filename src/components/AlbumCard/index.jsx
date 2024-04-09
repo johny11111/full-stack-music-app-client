@@ -37,7 +37,7 @@ export default function AlbumCard({ album }) {
                     key={album._id}
                     onClick={handleClick}
                     className={album.name === "playlist" ? styles.containerPlaylist : styles.containerSongDash}>
-                        {album.image !== "none" ?  <img className={styles.img} src={album.image} alt="song" /> : <div><CgMusic style={{"fontSize" : "5rem"}} /></div>  }
+                        {album.image !== "none" ?  <img className={styles.img} src={album.image} alt="song" /> : <div><CgMusic className={album.name === "playlist" ? styles.iconM : styles.icons} /></div>  }
                  
 
                     <p>{album.name}</p>
