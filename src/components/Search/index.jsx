@@ -56,6 +56,9 @@ export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex
 
   return (
     <div className={styles.containerSearch}>
+        <h2>
+          חיפוש שירים או אלבומים
+        </h2>
       <div className={styles.containerInputSearch}>
         <input onChange={searchSongs} value={searchValue} type="text" placeholder='search songs' />
       </div>
@@ -65,14 +68,14 @@ export default function Search({ audioRef, setCurrentSongIndex, currentSongIndex
         transition={{ duration: 0.7 }}
       >
 
-        <div>
+        <div className={styles.containerSongsOnSearch}>
           {isFiltered && <h1>songs</h1>}
           {filter?.map((data, index) => (
             <Song key={data._id} song={data} i={index} handleClick={handleClick} />
           ))}
         </div>
 
-        <div>
+        <div className={styles.containerAlbumsOnSearch}>
           {isFiltered && <h1> albums </h1>}
           {filteredAlbums?.map((album, i) => (
             <AlbumCard album={album} i={i} key={i} />

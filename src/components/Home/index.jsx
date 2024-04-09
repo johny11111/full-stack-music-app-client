@@ -78,7 +78,7 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                 </motion.div>
                 <div className={styles.bodyContent}>
                     <Routes>
-                        <Route path='/library' element={<Library />} />
+                        {/* <Route path='/library' element={<Library />} /> */}
                         <Route path='/artist' element={<ArtistPage />} />
                         <Route path='/user' element={<User />} />
                         <Route path='/search' element={<Search audioRef={audioRef} setCurrentSongIndex={setCurrentSongIndex} currentSongIndex={currentSongIndex} />} />
