@@ -9,7 +9,7 @@ import { FaRegUser } from "react-icons/fa";
 export default function NavBottom() {
     return (
         <div className={styles.containerNavBottom}>
-            <NavLink to={"main/music/65dc006a8ec083f5cc8b5992"}>
+            <NavLink to={"main/library"}>
                 <IoLibrary className={styles.Icon}   />
                 <p>library</p>
             </NavLink>

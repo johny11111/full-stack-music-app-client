@@ -61,7 +61,7 @@
     max-width: 100%;
     justify-content: space-between;
     color: var(--textColor);
-    background: linear-gradient(180deg, #351310, #515151);
+    background: linear-gradient(180deg, var(--secundColor), #515151);
     padding: 1rem;
     border-bottom: 1px solid #D75146
 }
@@ -97,7 +97,7 @@
     flex-direction: column;
     width: 100px;
     height: 100px;
-    background: #351310;
+    background: var(--secundColor);
     align-items: center;
     justify-content: center;
 }
@@ -185,7 +185,7 @@
 .navSide {
     position: absolute;
     top: 2.2rem;
-    background-color: #351310;
+    background-color: var(--secundColor);
     z-index: 1;
     height: max-content;
     border-top-right-radius: 2.5rem;
@@ -219,7 +219,7 @@
     .containerNavSide {
         display: none;
         position: absolute;
-        background-color: #351310;
+        background-color: var(--secundColor);
         width: 15rem;
 
 

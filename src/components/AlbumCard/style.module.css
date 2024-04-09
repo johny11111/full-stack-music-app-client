@@ -36,7 +36,7 @@
     width: 200px;
     height: 70px;
     margin: 1rem;
-    background:maroon;
+    background:var(--secundColor);
     border-radius: 10px;
     overflow: hidden;
     color: var(--textColor);
