@@ -1,0 +1,30 @@
+.containerLibrary {
+    color: wheat;
+}
+
+.containerLibrary h2 {
+    padding: 1rem;
+    color: wheat;
+}
+
+.containerSongsInLibrary {
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+
+.songInLibrary {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.songInLibrary:hover {
+    background-color: rgb(71, 69, 69);
+    border-radius: 14px;
+}
+
+.iconDel {
+    color: red;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
