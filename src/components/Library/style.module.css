@@ -1,25 +1,36 @@
 .containerLibrary {
     color: wheat;
+    padding: 1rem;
+    background-color: #1c1c1c; /* צבע רקע כהה לניגודיות טובה יותר */
+    border-radius: 8px;
 }
 
 .containerLibrary h2 {
     padding: 1rem;
     color: wheat;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-bottom: 1px solid #4a4a4a; /* קו תחתון להפרדה */
 }
 
 .containerSongsInLibrary {
     max-height: 80vh;
     overflow-y: scroll;
+    padding: 0.5rem;
 }
 
 .songInLibrary {
     display: flex;
     align-items: center;
     margin: 0.5rem 0;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עדינה על שינוי רקע ותנועה */
+    border-radius: 8px;
 }
 
 .songInLibrary:hover {
     background-color: rgb(71, 69, 69);
+    transform: scale(1.02); /* הגדלה קטנה בהצפה */
     border-radius: 14px;
 }
 
@@ -27,4 +38,10 @@
     color: red;
     font-size: 1.4rem;
     cursor: pointer;
+    margin-left: auto; /* כדי להזיז את האייקון לימין */
+    transition: color 0.3s ease; /* אנימציה לשינוי צבע */
+}
+
+.iconDel:hover {
+    color: darkred; /* שינוי צבע בהצפה */
 }
