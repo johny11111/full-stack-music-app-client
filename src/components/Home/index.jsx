@@ -94,12 +94,11 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                                         )}
 
                                         <h3>פלייליסט</h3>
-                                        <div className={styles.containerTitle}>
+                                        <div>
                                             {albums?.length > 0 && (
                                                 albums.map((album, i) => (
-                                                    <div>
+                                                    <div >
                                                         { album.name === "playlist" &&  <AlbumCard key={album?._id} album={album} i={i} />  }
-                                                       
                                                     </div>
                                                 ))
                                             ) }
