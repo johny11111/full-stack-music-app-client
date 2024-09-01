@@ -1,11 +1,4 @@
-.containerNavSide {
-    background-color: #121212; /* צבע רקע כהה */
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-}
-
-.containerUl {
+.containerUl{
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -15,13 +8,11 @@
 
 .containerUl a {
     text-decoration: none;
-    color: #FFFFFF; /* צבע טקסט לבן */
+    color: black;
     font-size: 1rem;
-    transition: all 0.3s ease;
-}
 
-.containerUl a:hover {
-    color: #1DB954; /* ירוק ניאון במעבר עכבר */
-    border-bottom: 0.1rem solid #FF4500; /* כתום בוהק */
-    transform: scale(1.1); /* הגדלת הטקסט במעבר עכבר */
+}
+.containerUl a:hover{
+    color: blue;
+    border-bottom: 0.1rem solid black;
 }

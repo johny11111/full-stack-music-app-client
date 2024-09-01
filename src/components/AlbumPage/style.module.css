@@ -3,19 +3,25 @@
     display: flex;
     height: 20vh;
     overflow: hidden;
+    padding: 0.5rem;
     width: 100%;
     flex-direction: column;
     justify-content: space-around;
-    border-bottom: 1px solid #44475a;
-    background: linear-gradient(183deg, #2b2d42, #1c1f26); /* צבעים כהים ונעימים יותר */
-    color: #f8f8f2;
+    border-bottom: 1px solid #d75146;
+    background: linear-gradient(183deg, #772A22, #33120F);
+
+
 }
 
+
+
 .containerBodyContent {
-    height: 55vh;
+    height: 55dvh;
     overflow-y: scroll;
-    background-color: #1e1e2f; /* צבע כהה יותר שמשתלב טוב */
 }
+
+
+
 
 ::-webkit-scrollbar {
     display: none;
@@ -24,23 +30,25 @@
 
 .containerPlaySongs {
     padding-bottom: 1rem;
+
     display: flex;
     max-width: 100%;
     justify-content: space-between;
-    color: #f8f8f2;
-    background: linear-gradient(180deg, #3b3c46, #2a2a40); /* צבע כהה עם נגיעה של סגול כהה */
+    color: var(--textColor);
+    background: linear-gradient(180deg, #351310, #515151);
     padding: 1rem;
-    border-bottom: 1px solid #6272a4;
+    border-bottom: 1px solid #D75146
 }
 
 .containerTitle {
-    height: 45vh;
+    height: 45dvh;
     max-width: 100%;
     width: 100%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    color: #d7dae0;
+    color: silver;
+    /* background: linear-gradient(84deg, #772A22, #33120F); */
 }
 
 .containerSongsBody {
@@ -49,14 +57,13 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    color: #d7dae0;
+    color: silver;
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    color: #f8f8f2;
 }
 
 .containerFex {
@@ -67,14 +74,14 @@
 
 .playIconH {
     font-size: 2.5rem;
-    color: #50fa7b; /* ירוק ניאון */
-    transition: color 0.3s ease;
+    color: rgb(3, 236, 3);
 }
 
 .likeIconH {
     font-size: 1.5rem;
-    color: #bd93f9; /* סגול ניאון */
+    color: rgb(182, 190, 182);
 }
+
 
 .containerSongHome {
     width: 100%;
@@ -82,16 +89,17 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    /* box-shadow: 0px 0px 21px -4px rgba(92, 91, 92, 1); */
     border-radius: 12px;
-    background-color: #282a36; /* גוון כהה שנראה טוב עם צבעי הניאון */
+    background-size: cover;
     overflow: hidden;
     padding: 1rem;
+
     position: relative;
-    transition: background 0.3s ease;
 }
 
 .containerSongHome:hover {
-    background-color: #44475a;
+    background-color: #302929;
 }
 
 .img {
@@ -100,8 +108,8 @@
     border-radius: 10px;
     max-height: 200px;
     height: 100%;
-    object-fit: cover;
 }
+
 
 .player {
     position: absolute;
@@ -109,70 +117,82 @@
     left: 40%;
     width: 50dvw;
     height: auto;
-    background-color: #1e1e2f; /* צבע כהה ונקי שמשתלב עם העיצוב הכללי */
-    border-top: 1px solid #6272a4;
 }
 
 .audio {
     width: 100%;
     border: none;
+
 }
 
 .containerNavSide {
-    height: 96vh;
-    width: 30vw;
-    background: #2b2d42; /* צבע כהה יותר שממשיך את השפה העיצובית */
+    height: 96dvh;
+    width: 30dvw;
+    background: #515151;
     padding: 1rem;
     overflow: hidden;
     margin: 1rem;
     border-radius: 10px;
 }
 
+
+
 @media screen and (max-width: 700px) {
     .containerTitle {
-        height: 60vh;
+        height: 60dvh;
     }
 
     .containerBodyContent {
-        height: 59vh;
+        height: 59dvh;
     }
 
     .HeaderBody p {
         font-size: 3rem;
     }
+
 }
 
 @media screen and (min-width: 900px) {
+
+
     .containerBodyContent {
-        height: 65vh;
+        height: 65dvh;
     }
 
     .containerTitle {
-        height: 50vh;
+        height: 50lvh;
     }
 
     .HeaderBody p {
         font-size: 3rem;
     }
+
+
 }
 
 @media screen and (max-width: 450px) {
+
     .HeaderBody p {
         font-size: 1.5rem;
     }
     .containerBodyContent {
-        height: 40vh;
+        height: 40dvh;
     }
     .containerBodyContentPlayerNone {
-        height: 53vh;
+        height: 53dvh;
     }
 }
 
+
 @media screen and (min-width: 500px) {
+
     .containerTitle {
-        height: 55vh;
+        height: 55dvh;
     }
+
     .containerBodyContent {
-        height: 48vh;
+        height: 48dvh;
     }
+
+
 }
