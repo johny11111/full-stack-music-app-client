@@ -24,10 +24,7 @@ export default function NavSide({ isPlayerActive }) {
       variants={variants}
       className={`${styles.containerNavSide} ${playerActive ? styles.playerActive : ''}`}
     >
-      <div className={styles.HeaderBody}>
-        <div> <User /></div>
-      </div>
-
+     
       <div className={styles.containerUl}>
         <motion.ul
           initial={{ opacity: 1, x: 90 }}
@@ -39,6 +36,11 @@ export default function NavSide({ isPlayerActive }) {
           <li><NavLink to={"/main/library"}>library</NavLink></li>
         </motion.ul>
       </div>
+
+      <div className={styles.HeaderBody}>
+        <div> <User /></div>
+      </div>
+
     </motion.div>
   );
 }

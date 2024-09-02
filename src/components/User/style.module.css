@@ -1,25 +1,29 @@
 
-.containerHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    display: contents;
-    height: 100dvh;
-    margin-top: 0;
-    position: relative;
-    padding: 0 1rem;
-    transition: background 0.3s ease;
+
+
+.containerHeader a {
+    text-decoration: none;
+    color: var(--highlightColor-turquoise);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.containerHeader.home {
-    background: var(--backgroundColor);
+.containerHeader a:hover {
+    background: var(--highlightColor);
+    color: #ffffff;
+    transform: translateX(7px); /* יצירת אפקט תזוזה */
+    box-shadow: 0 0 12px var(--highlightColor-turquoise); /* התאמה לאפקטי הצל */
 }
+
+
+/* .containerHeader.home {
+    background: var(--backgroundColor);
+} */
 
 .containerHeader.dashboard {
     background: var(--backgroundColor-red-yellow);
 }
-
 
 .popupLogOut {
     background-color: var(--backgroundColor-purple-turquoise);
@@ -34,10 +38,10 @@
     left: 0;
     height: auto;
     border-radius: 8px;
-    box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
+    box-shadow: none;
     opacity: 0;
     transform: translateY(10px);
-    animation: fadeIn 0.5s forwards, pulseGlow 1s infinite alternate;
+    animation: fadeIn 0.5s forwards;
 }
 
 /* שינוי טקסט בפופאפ של דשבורד */
@@ -47,12 +51,6 @@
 }
 
 /* טקסט בפופאפ של Home */
-.home .popupLogOut p,
-.home .popupLogOut a {
-    color: var(--textColor);
-    transition: color 0.3s ease;
-}
-
 .home .popupLogOut p:hover,
 .home .popupLogOut a:hover {
     color: var(--highlightColor);
@@ -65,14 +63,16 @@
     gap: 1rem;
     color: var(--textColor);
     padding: 1.3rem;
+    top: 27px;
+    position: absolute;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
+    box-shadow: none; /* הסרת הצללה */
 }
 
-.containerUser:hover {
+/* .containerUser:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 10px 20px -5px rgba(255, 255, 255, 0.4), 0px 0px 15px var(--highlightColor);
-}
+} */
 
 /* עיצוב תמונת המשתמש */
 .containerImg {
@@ -80,6 +80,7 @@
     overflow: hidden;
     width: 50px;
     height: 50px;
+    transition: transform 0.3s ease;
 }
 
 .img {
@@ -93,20 +94,18 @@
     transform: scale(1.1);
 }
 
-
 .optionsMenu {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 0.3rem;
-    position: absolute;
-    bottom: 122px;
+   
     font-size: 1.5rem;
     padding: 10px;
     width: 85%;
-    height: 45dvh;
+    height: 26dvh;
     background-color: var(--backgroundColor);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: none; /* הסרת הצללה */
     border-radius: 8px;
     margin-top: 1rem;
 }
@@ -142,28 +141,36 @@
 
 .containerHeader a {
     text-decoration: none;
-    color: var(--textColor);
-    transition: color 0.3s ease;
+    color: var(--highlightColor-turquoise);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .containerHeader a:hover {
-    color: var(--highlightColor);
-    text-shadow: 0 0 10px var(--highlightColor);
+    background: var(--highlightColor);
+    color: #ffffff;
+    transform: translateX(7px); /* יצירת אפקט תזוזה */
+    box-shadow: 0 0 12px var(--highlightColor-turquoise); /* התאמה לאפקטי הצל */
 }
+
 
 .logOut {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: red;
+    background: var(--backgroundColor-red-yellow);
     color: black;
     font-weight: 500;
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logOut:hover {
-    background: darkred;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5);
+    background: #fd0606 !important;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.7); /* אפקט הצל */
 }
