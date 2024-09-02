@@ -1,8 +1,25 @@
-:root{
-    --textColor: white;
-    --BgClient : #515151;
-    --primaryColor:#709ae7;
-    --secundColor: #351310;
-    --deleteColor: #ff0000;
-}
 
+:root {
+    /* Neon Modern Palette */
+    --backgroundColor: linear-gradient(180deg, #000000, #1f1f1f);
+    --textColor: #ffffff;
+    --highlightColor: #39ff14; /* Neon green */
+    --secondaryHighlightColor: #ff00ff; /* Neon pink */
+    --tertiaryHighlightColor: #00ffff; /* Neon blue */
+
+    /* Purple and Turquoise Palette */
+    --backgroundColor-purple-turquoise: linear-gradient(180deg, #1d1f20, #303133);
+    --highlightColor-purple: #800080; /* Deep purple */
+    --highlightColor-turquoise: #40e0d0; /* Bright turquoise */
+
+    /* Red and Yellow Modern Palette */
+    --backgroundColor-red-yellow: linear-gradient(180deg, #1c1c1c, #333333);
+    --highlightColor-red: #ff0000; /* Bold red */
+    --highlightColor-yellow: #ffd700; /* Warm yellow */
+
+    /* General */
+    --inputTrackColor: #1f2123;
+    --inputThumbColor: #0aa4dc;
+    --volumeTrackColor: #4d4e4f;
+    --volumeThumbColor: #10b1ec;
+}

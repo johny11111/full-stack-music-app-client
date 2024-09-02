@@ -1,38 +1,54 @@
 .containerNavSide {
     width: 100%;
-    height: 95lvh;
-    border-top-left-radius: 10rem;
+    height: 100dvh; /* גובה מלא כאשר הנגן כבוי */
+    border-top-left-radius: 4rem;
     gap: 1rem;
     padding: 1rem;
+    background: var(--backgroundColor-purple-turquoise); /* שימוש בגרדיאנט מהפלטה המוגדרת */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* צל עם תאורה עדינה */
+    transition: height 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* הוספת מעבר חלק לצל */
 }
 
+.containerNavSide.playerActive {
+    height: 80dvh; /* גובה נמוך יותר כאשר הנגן מופעל */
+    background: var(--backgroundColor-red-yellow); /* שינוי לגרדיאנט אחר להדגשת המצב */
+}
 
-.containerUl ul{ 
+.containerUl ul { 
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.containerUl a{
-text-decoration: none;
-font-size: 1.5rem;
-color: var(--textColor);
+.containerUl a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--highlightColor-turquoise); /* שימוש בצבעי הדגשה מוגדרים */
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* פינות מעוגלות */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* אפקט של תאורה ומעבר חלק */
 }
 
 .containerUl a:hover {
-    color:var(--textColor) ;
+    background: var(--highlightColor); /* צבע הדגשה נוסף בעת רחיפה */
+    color: #ffffff; /* צבע טקסט לבן */
+    transform: translateX(5px); /* תזוזה קלה של הקישור בזמן רחיפה */
+    box-shadow: 0 0 10px rgba(64, 224, 208, 0.5); /* הדגשה עם תאורה ניאונית */
     cursor: pointer;
 }
 
-
-.img{
+.img {
     align-self: self-start;
-    max-width: 300px;
+    max-width: 250px;
     width: 100%;
-    max-height: 200px;
+    max-height: 180px;
+    border-radius: 8px; /* פינות מעוגלות יותר */
     background-size: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* צל להדגשה */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* מעבר חלק */
 }
 
-
-
-
+.img:hover {
+    transform: scale(1.05); /* זום קל לתמונה */
+    box-shadow: 0 0 15px var(--highlightColor); /* תאורה זוהרת בצבע ניאוני */
+}

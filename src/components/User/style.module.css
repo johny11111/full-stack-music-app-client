@@ -1,120 +1,169 @@
-.containerHeader {
 
+.containerHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 12vh;
+    display: contents;
+    height: 100dvh;
     margin-top: 0;
     position: relative;
+    padding: 0 1rem;
+    transition: background 0.3s ease;
 }
 
-
-
-.containerUser {
-    display: flex;
-    gap: 1rem;
-
-    padding: 1.3rem;
+.containerHeader.home {
+    background: var(--backgroundColor);
 }
 
-.containerNavSide {
-
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    overflow: hidden;
-    justify-content: space-between;
+.containerHeader.dashboard {
+    background: var(--backgroundColor-red-yellow);
 }
 
-.containerUl ul {
-    display: flex;
-
-    gap: 1rem;
-    width: 100%;
-}
-
-.userName {
-    color: white;
-}
 
 .popupLogOut {
-    background-color: #8c8888;
-    z-index: 1;
+    background-color: var(--backgroundColor-purple-turquoise);
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
     position: absolute;
-    padding: 4px;
+    padding: 10px;
     width: 250px;
-    top: 100%;
+    top: 5rem;
     left: 0;
     height: auto;
-    -webkit-box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
-    -moz-box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
+    border-radius: 8px;
     box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s forwards, pulseGlow 1s infinite alternate;
 }
 
+/* שינוי טקסט בפופאפ של דשבורד */
+.dashboard .popupLogOut p,
+.dashboard .popupLogOut a {
+    color: black !important; /* הגדרת צבע טקסט שחור עם !important כדי לוודא שהוא מתקבל */
+}
+
+/* טקסט בפופאפ של Home */
+.home .popupLogOut p,
+.home .popupLogOut a {
+    color: var(--textColor);
+    transition: color 0.3s ease;
+}
+
+.home .popupLogOut p:hover,
+.home .popupLogOut a:hover {
+    color: var(--highlightColor);
+    text-shadow: 0 0 10px var(--highlightColor);
+}
+
+/* עיצוב פרטי המשתמש */
+.containerUser {
+    display: flex;
+    gap: 1rem;
+    color: var(--textColor);
+    padding: 1.3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.containerUser:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px -5px rgba(255, 255, 255, 0.4), 0px 0px 15px var(--highlightColor);
+}
+
+/* עיצוב תמונת המשתמש */
 .containerImg {
-    border-radius: 5rem;
+    border-radius: 50%;
     overflow: hidden;
     width: 50px;
     height: 50px;
-
-
 }
 
 .img {
     max-height: 50px;
     max-width: 50px;
     background-size: cover;
+    transition: transform 0.3s ease;
+}
+
+.img:hover {
+    transform: scale(1.1);
+}
+
+
+.optionsMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.3rem;
+    position: absolute;
+    bottom: 122px;
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 85%;
+    height: 45dvh;
+    background-color: var(--backgroundColor);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* עיצוב ייחודי למסכים קטנים */
+@media screen and (max-width: 600px) {
+    .optionsMenu {
+        position: static;
+        justify-content: space-evenly;
+        box-shadow: none;
+        max-height: 37dvh;
+        height: 100%;
+        padding: 0;
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px var(--highlightColor-turquoise), 0 0 20px var(--highlightColor-turquoise);
+    }
+
+    100% {
+        box-shadow: 0 0 15px var(--highlightColor-turquoise), 0 0 30px var(--highlightColor-turquoise);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .containerHeader a {
     text-decoration: none;
-    color: black;
+    color: var(--textColor);
+    transition: color 0.3s ease;
 }
 
 .containerHeader a:hover {
-    color: rgb(11, 11, 11);
-    cursor: pointer;
+    color: var(--highlightColor);
+    text-shadow: 0 0 10px var(--highlightColor);
 }
 
-@media screen and (max-width: 450px) {
-    .popupLogOut {
-        display: flex;
-        border-radius: 10px;
-        align-items: center;
-        position: absolute;
-        left: 59%;
-        width: 130px;
-    }
+.logOut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    color: black;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    hr {
-        width: 100%;
-    }
-
-    .containerUser {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .logOut {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: red;
-        color: white !important;
-        font-weight: 500;
-        width: 100%;
-    }
-
-    /* .containerHeader{
-        position: absolute ;
-        right: 0;
-        top: 0;
-    } */
-
+.logOut:hover {
+    background: darkred;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5);
 }

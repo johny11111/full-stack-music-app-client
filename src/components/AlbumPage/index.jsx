@@ -14,9 +14,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
 
     const [{ user, songs, selectedAlbum, albumSongs, currentSong, isPlaying }, dispatch] = useStateValue();
     const [selectedSong, setSelectedSong] = useState(null);
-    const [playlists, setPlaylists] = useState(null)
-
-
+  
 
     useEffect(() => {
         localStorage.setItem('currentSongIndex', currentSongIndex);
@@ -35,8 +33,6 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
         fetchData();
     }, []);
 
-
-
     // use effect to select the song from album
     useEffect(() => {
         const filter = songs?.filter(song => song?.album === selectedAlbum?._id)
@@ -47,11 +43,6 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
          
         }
     }, [songs])
-
-
-
-
-
 
     // click on song 
     const handleSongClick = async (song, index) => {
@@ -97,8 +88,6 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
             }
         }
     };
-
-
 
     return (
         <div className={styles.containerHome}>

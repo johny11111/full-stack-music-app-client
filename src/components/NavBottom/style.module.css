@@ -1,38 +1,44 @@
+/* סגנון הכפתורים והקונטיינר */
 .containerNavBottom {
-    position: absolute;
-    width: 100lvw;
-    height: 8lvh;
+    position: fixed;
+    width: 100vw;
+    height: 8vh; /* התאמה לגובה דינמי */
     bottom: 0;
     display: flex;
     justify-content: space-around;
-
-
+    background-color: var(--muted-color);
+    border-top: 1px solid var(--border-color);
+    z-index: 10; /* לוודא שהניווט מעל כל שאר האלמנטים */
 }
 
 .containerNavBottom a {
-    background-color: black;
+    background-color: transparent;
     text-decoration: none;
     font-size: 0.8rem;
-  
-    color: var(--textColor);
+    color: var(--text-color);
     display: flex;
     align-items: center;
-    width: calc(100% /3);
+    width: calc(100% / 4);
     justify-content: center;
     flex-direction: column;
+    transition: background 0.3s, color 0.3s; /* אנימציות צבע ורקע */
 }
 
-.containerNavBottom :hover {
-    background: white;
-    opacity: 0.5;
-    color: black;
-    border-radius: 10px;
-
+/* אפקט ריחוף */
+.containerNavBottom a:hover {
+    background: rgba(255, 255, 255, 0.1); /* צבע רקע מעודן בעת ריחוף */
+    color: var(--highlight-color); /* הדגשת צבע */
+    border-radius: 8px; /* פינות מעוגלות בריחוף */
 }
 
-.Icon{
+/* אפקט לחיצה */
+.containerNavBottom a:active {
+    transform: scale(0.95); /* אפקט הקטנה קל בלחיצה */
+}
 
+/* עיצוב האייקונים */
+.Icon {
     font-size: 1.8rem;
-    padding: 1px;
     padding: 0.3rem;
+    transition: transform 0.2s, color 0.2s; /* אנימציה של שינוי גודל וצבע */
 }

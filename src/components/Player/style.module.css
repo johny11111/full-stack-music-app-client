@@ -1,9 +1,12 @@
 
+
 .fullScreenPlayer {
     position: absolute;
     animation: slideIn 1s forwards; 
     top: 0;
     padding: 1rem;
+    transition: all 0.4s ease-in-out;
+    animation: slideIn 0.8s forwards;
     margin:  0 auto;
     display: flex;
     flex-direction: column;
@@ -13,34 +16,35 @@
     color: var(--textColor);
     gap: 1rem;
     height: 100dvh;
-    width: 100ldvw;
-    background: linear-gradient(180deg, #351310, #515151)
+    width: 100dvw;
+    background: var(--backgroundColor-purple-turquoise);
 }
 
 .fullScreenPlayer.closing {
-    animation: slideOut 0.5s forwards; 
-  }
-
-
-.fullScreenPlayer .boxImg  {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
-
+    animation: slideOut 0.5s forwards;
 }
+
+.fullScreenPlayer .boxImg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .fullScreenPlayer .boxImg img {
     align-self: center;
     justify-self: center;
-    height: 250px;
-    width: 250px;
+    height: 300px; /* הגדלת התמונה */
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* אפקט צל */
 }
+
 
 .fullScreenPlayer .containerControls {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
-
 }
 
 .currentTimeFullS {
@@ -52,11 +56,6 @@
 .currentTimeFullS input {
     width: 70%;
 }
-
-/* .containerCurrentTimeFullS{
-    max-width: 100%;
-} */
-
 
 .containerPlayer {
     display: grid;
@@ -76,7 +75,6 @@
     color: white;
 }
 
-
 .img {
     max-height: 100px;
     max-width: 100px;
@@ -84,10 +82,6 @@
     height: 100%;
     border-radius: 10px;
 }
-
-
-
-
 
 .boxImg {
     font-size: 0.9rem;
@@ -105,10 +99,7 @@
     align-items: center;
     justify-content: space-around;
     gap: 1rem;
-
 }
-
-
 
 .inputCurrentTime {
     border: none;
@@ -117,104 +108,110 @@
     background: transparent;
     cursor: pointer;
     width: 25rem;
-    /* align-items: center;
-    max-width: 80%;
-    display: unset; */
-    /* background-color: black;
-    color: rgba(0, 0, 0, 0.5); */
 }
 
 .inputCurrentTime::-webkit-slider-runnable-track {
-    background: #1f2123;
-    height: 0.5rem;
-
-
+    background: linear-gradient(90deg, var(--highlightColor), var(--secondaryHighlightColor));
+    height: 0.6rem;
+    border-radius: 5px;
 }
 
-.addToLibrary{
-    color: green;
+.inputCurrentTime::-webkit-slider-thumb {
+    -webkit-animation: none;
+    appearance: none;
+    margin-top: 1px;
+    background-color: var(--inputTrackColor);
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
 }
 
 
 .inputCurrentTime::-webkit-slider-thumb {
     -webkit-animation: none;
     appearance: none;
-    margin-top: -1 px;
-    /* Centers thumb on the track */
-    background-color: #0aa4dc;
+    margin-top: 1px;
+    background-color: var(--tertiaryHighlightColor);
     border-radius: 15px;
-    height: 0.6rem;
-    width: 5px;
+    height: 0.5rem;
+    width: 15px;
 }
 
-
+.addToLibrary {
+    color: green;
+}
 
 .containerPlayerIcons {
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 }
 
+.containerPlayerIcons .icon {
+    font-size: 2.8rem;
+    color: var(--highlightColor);
+    transition: transform 0.2s ease, color 0.3s ease; 
+}
+
+.containerPlayerIcons .icon:hover {
+    transform: scale(1.2); 
+    color: var(--secondaryHighlightColor);
+}
+
 
 .containerControls {
-
     display: flex;
     flex-direction: column;
-
 }
 
 .containerRVolume {
     display: flex;
     align-items: center;
     justify-content: end;
-
-
     max-width: 100%;
     max-height: 20lvh;
 }
 
-
 .volumeIcon {
     font-size: 2rem;
+    display: flex;
+    gap: 1rem;
+    color: var(--highlightColor);
 }
-
 .inputVolume {
-    padding: 1rem;
-    max-width: 100px;
+    padding: 0.5rem;
+    max-width: 120px;
     width: 100%;
     border: none;
     -webkit-appearance: none;
     appearance: none;
-    background: transparent;
+    border-radius: 10px;
+    background:  var(--backgroundColor);
+    height: 0.4rem; 
     cursor: pointer;
-    justify-content: end;
-
 }
 
 .inputVolume::-webkit-slider-runnable-track {
-    background: #4d4e4f;
-    height: 0.5rem;
+    background: var(--backgroundColor);
+    border-radius: 10px;
+    height: 1rem;
 }
 
 .inputVolume::-webkit-slider-thumb {
-    -webkit-animation: none;
+    -webkit-appearance: none;
     appearance: none;
-    margin-top: 0px;
-
-    /* Centers thumb on the track */
-    background-color: #10b1ec;
-
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+    background: var(--highlightColor); 
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* אפקט צל */
 }
 
 .isActive {
-    color: rgb(33, 168, 33);
+    color: var(--highlightColor);
 }
-
 
 .rotatingImg {
     transition: ease-in-out 1s;
@@ -225,11 +222,14 @@
 }
 
 
-@media screen and (max-width:932px) {
+
+
+@media screen and (max-width: 932px) {
     .containerPlayer {
         display: grid;
         bottom: 0rem;
         padding: 1rem;
+        background-color: var(--backgroundColor); /* התאם את הרקע לפי הפלטה שבחרת */
     }
 
     .containerControls {
@@ -249,6 +249,7 @@
     .boxImg h2 {
         font-size: medium;
         width: 100%;
+        color: var(--textColor); 
     }
 
     .boxImg div {
@@ -260,25 +261,21 @@
         width: 50px;
         height: 50px;
     }
-
 }
 
-
-
-
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
     .containerPlayer {
         animation: slideOut 1s forwards; 
         grid-template-rows: calc(100% / 3);
         max-height: 13dvh;
         bottom: 3.7rem;
+        background-color: var(--backgroundColor); 
     }
 
     .containerControls {
         width: 40dvw;
         display: flex;
         flex-direction: column;
-
     }
 
     .containerCurrentTime {
@@ -289,12 +286,8 @@
         display: flex;
         align-items: normal;
         justify-content: center;
-
-
     }
-
 }
-
 
 @keyframes rotate {
     from {
@@ -306,22 +299,21 @@
     }
 }
 
-
-
 @keyframes slideIn {
     from {
-      transform: translateY(100%);
+        transform: translateY(100%);
     }
     to {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
+}
 
-  @keyframes slideOut {
+@keyframes slideOut {
     from {
-      transform: translateY(100%);
+        transform: translateY(100%);
     }
     to {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
+}
+

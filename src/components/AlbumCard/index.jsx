@@ -18,8 +18,6 @@ console.log(album);
         
     },[])
 
-   
-
     const handleClick = () => {
         dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
     }
