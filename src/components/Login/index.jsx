@@ -36,12 +36,13 @@ export default function Login({ setAuth }) {
 
             await user.getIdToken().then((token) => {
               validate(token).then((data) => {
+                console.log(data);
                 setAuth(false)
-                if (data === undefined) {
-                  window.localStorage.setItem('auth', "false")
-                  return navigate("/notAuthorized");
+                // if (data === undefined) {
+                //   // window.localStorage.setItem('auth', "false")
+                //   // return navigate("/notAuthorized");
 
-                }
+                // }
                 dispatch({ type: reducerCases.SET_USER, user: data })
                 navigate("/main");
               })
@@ -58,10 +59,6 @@ export default function Login({ setAuth }) {
     }))
   }
 
-  const LoginWiteMail = () => {
-    console.log(userRef.current.value);
-
-  }
 
   return (
     <div className={styles.containerLogin}>

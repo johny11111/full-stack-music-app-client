@@ -65,7 +65,7 @@ export default function DashboardNowSong() {
             if (post) {
                 setAudioLoading(false);
                 setSongName("")
-                setAudioUrl(null)
+                setAudioUrl(null) 
                 setSongImage(null)
                 setImageUploading(false);
 
@@ -297,20 +297,22 @@ export const FileUploader = ({ updateState, setProgress, setImageUploading, isIm
         setImageUploading(true)
         const updatedFile = e.target.files[0]
 
-        const storageRef = ref(storage, `${isImage ? "images" : "audio"}/${updatedFile.name}`)
+        console.log(updatedFile);
 
-        const uploadTask = uploadBytesResumable(storageRef, updatedFile)
+        // const storageRef = ref(storage, `${isImage ? "images" : "audio"}/${updatedFile.name}`)
 
-        uploadTask.on("state_changed", (snapshot) => {
-            setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-        }, (err) => {
-            console.log(err);
-        }, () => {
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                updateState(downloadURL)
-                setImageUploading(false)
-            })
-        })
+        //  const uploadTask = uploadBytesResumable(storageRef, updatedFile)
+
+        // uploadTask.on("state_changed", (snapshot) => {
+        //     setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+        // }, (err) => {
+        //     console.log(err);
+        // }, () => {
+        //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        //         updateState(downloadURL)
+        //         setImageUploading(false)
+        //     })
+        // })
 
     }
 

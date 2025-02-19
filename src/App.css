@@ -1,19 +1,8 @@
 .containerApp {
-    height: auto;
-    max-width: 100dvw;
-    max-height: 100dvh;
-
-}
-
-.flex {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    max-height: 100dvh;
+    overflow: hidden;
 }
-
-
-
-/* .loading a {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-} */

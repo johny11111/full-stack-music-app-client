@@ -7,7 +7,7 @@ const [{artists}, dispatch]= useStateValue()
 console.log("artists " , artists);
   return (
     <div className={styles.containerArtists}>
-      {artists.map((artist) =>  <ArtistCard key={artist._id}  artist={artist} />)}
+      {artists?.map((artist) =>  <ArtistCard key={artist?._id}  artist={artist} />)}
 
     </div>
   )

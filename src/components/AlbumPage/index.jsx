@@ -14,9 +14,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
 
     const [{ user, songs, selectedAlbum, albumSongs, currentSong, isPlaying }, dispatch] = useStateValue();
     const [selectedSong, setSelectedSong] = useState(null);
-    const [playlists, setPlaylists] = useState(null)
-
-
+  
 
     useEffect(() => {
         localStorage.setItem('currentSongIndex', currentSongIndex);
@@ -28,42 +26,35 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
         const fetchData = async () => {
             if (!songs) {
                 await getAllSongs().then((data) => {
-                    dispatch({ type: reducerCases.SET_SONGS, songs: data.songs });
+                    dispatch({ type: reducerCases.SET_SONGS, songs: data?.songs });
                 });
             }
         };
         fetchData();
     }, []);
 
-
-
     // use effect to select the song from album
     useEffect(() => {
-        const filter = songs?.filter(song => song.album === selectedAlbum._id)
+        const filter = songs?.filter(song => song?.album === selectedAlbum?._id)
         dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: filter })
 
-        if (selectedAlbum.name === "playlist") {
-            dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: user.playlist })
+        if (selectedAlbum?.name === "playlist") {
+            dispatch({ type: reducerCases.SET_ALBUM_SONGS, albumSongs: user?.playlist })
          
         }
     }, [songs])
-
-
-
-
-
 
     // click on song 
     const handleSongClick = async (song, index) => {
     
         if (songs) {
-            const filter = songs.filter(song => song.album === selectedAlbum._id)
+            const filter = songs.filter(song => song?.album === selectedAlbum._id)
             if (filter) {
                 dispatch({ type: reducerCases.SET_SONGS_PLAYED, songsPlayed: filter })
                 dispatch({ type: reducerCases.SET_CURRENT_SONG, currentSong: song })
             }
             if(selectedAlbum.name === "playlist"){
-                dispatch({ type: reducerCases.SET_SONGS_PLAYED, songsPlayed: user.playlist })
+                dispatch({ type: reducerCases.SET_SONGS_PLAYED, songsPlayed: user?.playlist })
                 dispatch({ type: reducerCases.SET_CURRENT_SONG, currentSong: song })
             }
     
@@ -98,8 +89,6 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
         }
     };
 
-
-
     return (
         <div className={styles.containerHome}>
             <div className={styles.grid}>
@@ -112,7 +101,7 @@ export default function AlbumPage({ currentSongIndex, setCurrentSongIndex, audio
                                     animate={{ opacity: 100, x: 1 }}
                                     transition={{ duration: 1.2 }}
                                     style={{ "maxHeight": "100%", "display": "flex", "alignItems": "center", "fontSize": "3rem", "color": "white", "gap": "3rem" }}>
-                                    {selectedAlbum.image !== "none" && selectedAlbum.image !== null ? <img className={styles.img} src={selectedAlbum?.image} alt="song" /> : <div><CgMusic style={{ "fontSize": "5rem" }} /></div>}
+                                    {selectedAlbum?.image !== "none" && selectedAlbum?.image !== null ? <img className={styles.img} src={selectedAlbum?.image} alt="song" /> : <div><CgMusic style={{ "fontSize": "5rem" }} /></div>}
                                     <p>{selectedAlbum?.name}</p>
                                 </motion.div>
                             </div>

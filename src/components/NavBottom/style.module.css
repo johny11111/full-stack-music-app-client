@@ -1,38 +1,86 @@
+/* סגנון הכפתורים והקונטיינר */
 .containerNavBottom {
-    position: absolute;
-    width: 100lvw;
-    height: 8lvh;
+    position: fixed;
+    width: 100vw;
+    height: 8vh;
     bottom: 0;
     display: flex;
     justify-content: space-around;
-
-
+    background-color: var(--inputTrackColor);
+    /* שימוש ברקע ניאוני */
+    border-top: 1px solid var(--highlightColor-turquoise);
+    z-index: 10;
+    box-shadow: 0 -2px 10px rgba(64, 224, 208, 0.4);
+    /* צל קל למעלה */
 }
 
 .containerNavBottom a {
-    background-color: black;
+    background-color: transparent;
     text-decoration: none;
     font-size: 0.8rem;
-  
     color: var(--textColor);
     display: flex;
     align-items: center;
-    width: calc(100% /3);
+    width: calc(100% / 4);
     justify-content: center;
     flex-direction: column;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 
-.containerNavBottom :hover {
-    background: white;
-    opacity: 0.5;
-    color: black;
-    border-radius: 10px;
-
+/* אפקט ריחוף */
+.containerNavBottom a:hover {
+    background: rgba(64, 224, 208, 0.1);
+    /* הדגשה עם צבע ניאוני */
+    color: var(--highlightColor-turquoise);
+    border-radius: 8px;
+    transform: translateY(-2px);
+    /* תזוזה קלה כלפי מעלה */
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+    /* צל עם הדגשה */
 }
 
-.Icon{
+/* אפקט לחיצה */
+.containerNavBottom a:active {
+    transform: scale(0.95);
+}
 
+
+.containerNavBottom a {
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: var(--textColor);
+    display: flex;
+    align-items: center;
+    width: calc(100% / 4);
+    justify-content: center;
+    flex-direction: column;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+/* אפקט ריחוף */
+.containerNavBottom a:hover {
+    background: rgba(64, 224, 208, 0.1);
+    color: var(--highlightColor-turquoise);
+    border-radius: 8px;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+}
+
+/* אפקט לחיצה */
+.containerNavBottom a:active {
+    transform: scale(0.95);
+}
+
+/* עיצוב האייקונים */
+.Icon {
     font-size: 1.8rem;
-    padding: 1px;
     padding: 0.3rem;
+    transition: transform 0.2s, color 0.2s;
+}
+
+/* שינוי צבע וגודל האייקונים בעת ריחוף */
+.containerNavBottom a:hover .Icon {
+    color: var(--highlightColor-purple);
+    transform: scale(1.1);
 }

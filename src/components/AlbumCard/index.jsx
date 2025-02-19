@@ -8,7 +8,7 @@ import { CgMusic } from "react-icons/cg";
 
 export default function AlbumCard({ album }) {
     const [{ selectedAlbum }, dispatch] = useStateValue()
-
+console.log(album);
 
     useEffect(() => {
         if(selectedAlbum) {
@@ -17,8 +17,6 @@ export default function AlbumCard({ album }) {
         dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
         
     },[])
-
-   
 
     const handleClick = () => {
         dispatch({ type: reducerCases.SET_SELECT_ALBUM, selectedAlbum: album })
@@ -34,13 +32,13 @@ export default function AlbumCard({ album }) {
             >
                 {selectedAlbum && <Link
                     to={`/main/music/${selectedAlbum._id}`}
-                    key={album._id}
+                    key={album?._id}
                     onClick={handleClick}
-                    className={album.name === "playlist" ? styles.containerPlaylist : styles.containerSongDash}>
-                        {album.image !== "none" ?  <img className={styles.img} src={album.image} alt="song" /> : <div><CgMusic className={album.name === "playlist" ? styles.iconM : styles.icons} /></div>  }
+                    className={album?.name === "playlist" ? styles.containerPlaylist : styles.containerSongDash}>
+                        {album?.image !== "none" ?  <img className={styles.img} src={album?.image} alt="song" /> : <div><CgMusic className={album?.name === "playlist" ? styles.iconM : styles.icons} /></div>  }
                  
 
-                    <p>{album.name}</p>
+                    <p>{album?.name}</p>
                 </Link>}
             </motion.div>
 

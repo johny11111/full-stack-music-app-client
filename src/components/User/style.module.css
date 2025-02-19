@@ -1,120 +1,198 @@
-.containerHeader {
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 12vh;
-    margin-top: 0;
-    position: relative;
+
+
+.containerHeader a {
+    text-decoration: none;
+    color: var(--highlightColor-turquoise);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.containerHeader a:hover {
+    background: var(--highlightColor);
+    color: #ffffff;
+    transform: translateX(7px); /* יצירת אפקט תזוזה */
+    box-shadow: 0 0 12px var(--highlightColor-turquoise); /* התאמה לאפקטי הצל */
 }
 
 
+/* .containerHeader.home {
+    background: var(--backgroundColor);
+} */
 
-.containerUser {
-    display: flex;
-    gap: 1rem;
-
-    padding: 1.3rem;
-}
-
-.containerNavSide {
-
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    overflow: hidden;
-    justify-content: space-between;
-}
-
-.containerUl ul {
-    display: flex;
-
-    gap: 1rem;
-    width: 100%;
-}
-
-.userName {
-    color: white;
+.containerHeader.dashboard {
+    background: var(--backgroundColor-red-yellow);
 }
 
 .popupLogOut {
-    background-color: #8c8888;
-    z-index: 1;
+    background-color: var(--backgroundColor-purple-turquoise);
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
     position: absolute;
-    padding: 4px;
+    padding: 10px;
     width: 250px;
-    top: 100%;
+    top: 5rem;
     left: 0;
     height: auto;
-    -webkit-box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
-    -moz-box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
-    box-shadow: -1px 3px 19px -6px rgba(0, 0, 0, 0.41);
+    border-radius: 8px;
+    box-shadow: none;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s forwards;
 }
 
+/* שינוי טקסט בפופאפ של דשבורד */
+.dashboard .popupLogOut p,
+.dashboard .popupLogOut a {
+    color: black !important; /* הגדרת צבע טקסט שחור עם !important כדי לוודא שהוא מתקבל */
+}
+
+/* טקסט בפופאפ של Home */
+.home .popupLogOut p:hover,
+.home .popupLogOut a:hover {
+    color: var(--highlightColor);
+    text-shadow: 0 0 10px var(--highlightColor);
+}
+
+/* עיצוב פרטי המשתמש */
+.containerUser {
+    display: flex;
+    gap: 1rem;
+    color: var(--textColor);
+    padding: 1.3rem;
+    top: 27px;
+    position: absolute;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: none; /* הסרת הצללה */
+}
+
+/* .containerUser:hover {
+    transform: translateY(-5px);
+} */
+
+/* עיצוב תמונת המשתמש */
 .containerImg {
-    border-radius: 5rem;
+    border-radius: 50%;
     overflow: hidden;
     width: 50px;
     height: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-
+.containerImg:hover{
+    cursor: pointer;
+    transform: scale(1.1); 
+    box-shadow: 0px 0px 15px 2px var(--highlightColor);
 }
 
 .img {
     max-height: 50px;
     max-width: 50px;
     background-size: cover;
+    transition: transform 0.3s ease;
+}
+
+.img:hover {
+    transform: scale(1.1);
+}
+
+.optionsMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.3rem;
+   
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 95%;
+    height: 26dvh;
+    background-color: var(--backgroundColor);
+    box-shadow: none; /* הסרת הצללה */
+    border-radius: 8px;
+    margin-top:13%;
+}
+
+.optionMenuUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.3rem;
+   
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 95%;
+    height: 50dvh;
+    background-color: var(--backgroundColor);
+    box-shadow: none; /* הסרת הצללה */
+    border-radius: 8px;
+    margin-top:13%;
+}
+
+/* עיצוב ייחודי למסכים קטנים */
+@media screen and (max-width: 600px) {
+    .optionsMenu {
+        position: static;
+        justify-content: space-evenly;
+        box-shadow: none;
+        max-height: 37dvh;
+        height: 100%;
+        padding: 0;
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px var(--highlightColor-turquoise), 0 0 20px var(--highlightColor-turquoise);
+    }
+
+    100% {
+        box-shadow: 0 0 15px var(--highlightColor-turquoise), 0 0 30px var(--highlightColor-turquoise);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .containerHeader a {
     text-decoration: none;
-    color: black;
+    color: var(--highlightColor-turquoise);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .containerHeader a:hover {
-    color: rgb(11, 11, 11);
-    cursor: pointer;
+    background: var(--highlightColor);
+    color: #ffffff;
+    transform: translateX(7px); /* יצירת אפקט תזוזה */
+    box-shadow: 0 0 12px var(--highlightColor-turquoise); /* התאמה לאפקטי הצל */
 }
 
-@media screen and (max-width: 450px) {
-    .popupLogOut {
-        display: flex;
-        border-radius: 10px;
-        align-items: center;
-        position: absolute;
-        left: 59%;
-        width: 130px;
-    }
 
-    hr {
-        width: 100%;
-    }
+.logOut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--backgroundColor-red-yellow);
+    color: black;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .containerUser {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .logOut {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: red;
-        color: white !important;
-        font-weight: 500;
-        width: 100%;
-    }
-
-    /* .containerHeader{
-        position: absolute ;
-        right: 0;
-        top: 0;
-    } */
-
+.logOut:hover {
+    background: #fd0606 !important;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.7); /* אפקט הצל */
 }

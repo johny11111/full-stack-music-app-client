@@ -18,7 +18,6 @@ import Loading from './components/Loading';
 
 
 function App() {
-
   const audioRef = useRef()
 
   useEffect(() => {
@@ -60,7 +59,6 @@ function App() {
     fetchData()
   }, [])
 
-
   useEffect(() => {
     if (window.localStorage.getItem('auth') === 'true') {
       navigate("/main", { replace: true })
@@ -83,15 +81,7 @@ function App() {
             <Route path='/login' element={<Login setAuth={setAuth} />} />
             <Route path='/*' element={<Loading />} />
           </Routes>
-
-
-
-
         }
-
-
-        {/* */}
-
         <div>
           {
             user && currentSong && !window.location.hash.includes("login") && !window.location.hash.includes('dashboard') && <Player
