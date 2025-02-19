@@ -62,8 +62,7 @@
 
 .containerArtist {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
-    
+    grid-template-columns: repeat(auto-fill, minmax(135px, 2fr));
     padding: 1rem;
 }
 
