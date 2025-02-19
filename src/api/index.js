@@ -18,7 +18,6 @@ export const validate = async (token) => {
     }
 }
 
-
 export const getAllUsers = async () => {
     try {
         const response = await axios.get(`${baseUrl}users/getAllUsers`)
@@ -38,7 +37,6 @@ export const getAllSongs = async () => {
         return console.log(error);;
     }
 }
-
 export const getAllAlbums = async () => {
     try {
         const response = await axios.get(`${baseUrl}albums/getAllALbums`)
