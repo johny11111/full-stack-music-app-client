@@ -7,8 +7,10 @@ import { motion } from 'framer-motion';
 import { app } from "../../config/fireBase.config";
 
 export default function HeaderHome() {
-    const [{ user }] = useStateValue();
+    const [{ user , selectedSong  }] = useStateValue();
     const [menu, setMenu] = useState(false);
+
+    const userPage = window.location.hash.includes("/user")
 
     const auth = getAuth(app);
 
@@ -70,7 +72,7 @@ export default function HeaderHome() {
                     </motion.div>
                 )
             ) : (
-                <div className={`${styles.optionsMenu} ${styles.homeText}`}>
+                <div className={ userPage ? styles.optionMenuUser :`${styles.optionsMenu} ${styles.homeText}`}>
                     <NavLink to={"user/profile"}>
                         <p>profile</p>
                     </NavLink>

@@ -1,48 +1,109 @@
-.containerLibrary {
-    color: wheat;
 
+.containerLibraryWrapper {
     padding: 1rem;
-    background-color: #1c1c1c; /* צבע רקע כהה לניגודיות טובה יותר */
-    border-radius: 8px;
+   
+    border-radius: 16px;
+ 
 }
+
+.containerLibrary {
+    padding: 1.5rem;
+  
+    border-radius: 12px;
+    color: var(--textColor);
+   
+    transition: box-shadow 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    
+}
+
+
 
 .containerLibrary h2 {
-    padding: 1rem;
-    color: wheat;
-    font-size: 1.6rem;
-    font-weight: bold;
-    border-bottom: 1px solid #4a4a4a; /* קו תחתון להפרדה */
-}
-
-.containerSongsInLibrary {
-    max-height: 80vh;
-    overflow-y: scroll;
-    padding: 0.5rem;
+    color: var(--highlightColor-turquoise);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--highlightColor-purple);
+    padding-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 0.05rem;
 }
 
 .songInLibrary {
     display: flex;
     align-items: center;
     margin: 0.5rem 0;
-    padding: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה עדינה על שינוי רקע ותנועה */
-    border-radius: 8px;
+    padding: 0.8rem;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 12px;
+    background: rgba(50, 50, 50, 0.3);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .songInLibrary:hover {
-    background-color: rgb(71, 69, 69);
-    transform: scale(1.02); /* הגדלה קטנה בהצפה */
-    border-radius: 14px;
+    background: rgba(80, 80, 80, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.songInLibrary.active {
+    background: var(--highlightColor-turquoise);
+    color: #ffffff;
+    font-weight: bold;
+    border-left: 6px solid var(--highlightColor-purple);
 }
 
 .iconDel {
-    color: red;
+    color: var(--highlightColor-red);
     font-size: 1.4rem;
     cursor: pointer;
-    margin-left: auto; /* כדי להזיז את האייקון לימין */
-    transition: color 0.3s ease; /* אנימציה לשינוי צבע */
+    margin-left: auto;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .iconDel:hover {
-    color: darkred; /* שינוי צבע בהצפה */
+    color: #e60000;
+    transform: scale(1.15);
+}
+
+.emptyLibrary {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--textColor);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* עיצוב לגלילה */
+.containerLibrary::-webkit-scrollbar {
+    display: none; /* מסתיר את פס הגלילה */
+}
+
+.containerLibrary::-webkit-scrollbar-thumb {
+    background: var(--highlightColor-turquoise);
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* מדיה קוורי לשיפור רספונסיביות במסכים קטנים */
+@media screen and (max-width: 768px) {
+    .containerLibrary {
+        padding: 1rem;
+        width: 95%; 
+    }
+
+    .containerLibrary h2 {
+        font-size: 1.6rem;
+    }
+
+    .songInLibrary {
+        padding: 0.6rem;
+        margin: 0.3rem 0;
+    }
 }

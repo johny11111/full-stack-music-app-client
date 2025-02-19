@@ -1,25 +1,24 @@
-
 :root {
-    /* Neon Modern Palette */
-    --backgroundColor: linear-gradient(180deg, #000000, #1f1f1f);
-    --textColor: #ffffff;
-    --highlightColor: #39ff14; /* Neon green */
-    --secondaryHighlightColor: #ff00ff; /* Neon pink */
-    --tertiaryHighlightColor: #00ffff; /* Neon blue */
+    /* צבעי רקע כהים עם נגיעות רכות אך דינמיות */
+    --backgroundColor: linear-gradient(180deg, #121212, #1d1d1d); /* שחור פחם עמוק שמדגיש את האלמנטים */
+    --textColor: #f0f0f0; /* לבן עדין עם ניגודיות גבוהה */
+    --highlightColor: #ff6f61; /* קורל חם, צבע אנרגטי ומודרני */
+    --secondaryHighlightColor: #ffca3a; /* צהוב אנרגטי ש"משדר כוח" */
+    --tertiaryHighlightColor: #1982c4; /* כחול חשמלי, מעניק תחושה של טכנולוגיה ומוזיקה */
 
-    /* Purple and Turquoise Palette */
-    --backgroundColor-purple-turquoise: linear-gradient(180deg, #1d1f20, #303133);
-    --highlightColor-purple: #800080; /* Deep purple */
-    --highlightColor-turquoise: #40e0d0; /* Bright turquoise */
+    /* פלטת צבעים כהה עם נגיעות סגולות ותכלת */
+    --backgroundColor-purple-turquoise: linear-gradient(180deg, #2a2b2e, #37383b); /* רקע כהה עם טוויסט מתוחכם */
+    --highlightColor-purple: #9d4edd; /* סגול עמוק ונועז */
+    --highlightColor-turquoise: #00f5d4; /* טורקיז זוהר עם תחושת חדשנות */
 
-    /* Red and Yellow Modern Palette */
-    --backgroundColor-red-yellow: linear-gradient(180deg, #1c1c1c, #333333);
-    --highlightColor-red: #ff0000; /* Bold red */
-    --highlightColor-yellow: #ffd700; /* Warm yellow */
-
-    /* General */
-    --inputTrackColor: #1f2123;
-    --inputThumbColor: #0aa4dc;
-    --volumeTrackColor: #4d4e4f;
-    --volumeThumbColor: #10b1ec;
+    /* צבעי רקע ותוספות כלליות */
+    --backgroundColor-red-yellow: linear-gradient(180deg, #262729, #414345); /* אפור כהה עם מראה עדכני ואלגנטי */
+    --highlightColor-red: #ff595e; /* אדום עם גוון עכשווי, מתאים להדגשות חשובות */
+    --highlightColor-yellow: #ffdd57; /* צהוב קליל, אידיאלי לכפתורי פעולה והתראות */
+    
+    /* צבעים כלליים למסלולים ופקדים */
+    --inputTrackColor: #2c2f33; /* אפור כהה למסלולים, מספק תחושה נקייה */
+    --inputThumbColor: #ff9f1c; /* כתום מודגש לגלגלות */
+    --volumeTrackColor: #52575d; /* אפור מתכתי שקט ואלגנטי */
+    --volumeThumbColor: #38a3a5; /* ירוק-כחול מתוחכם, נותן תחושת איזון */
 }

@@ -80,7 +80,13 @@
     overflow: hidden;
     width: 50px;
     height: 50px;
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.containerImg:hover{
+    cursor: pointer;
+    transform: scale(1.1); 
+    box-shadow: 0px 0px 15px 2px var(--highlightColor);
 }
 
 .img {
@@ -102,12 +108,28 @@
    
     font-size: 1.5rem;
     padding: 10px;
-    width: 85%;
+    width: 95%;
     height: 26dvh;
     background-color: var(--backgroundColor);
     box-shadow: none; /* הסרת הצללה */
     border-radius: 8px;
-    margin-top: 1rem;
+    margin-top:13%;
+}
+
+.optionMenuUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.3rem;
+   
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 95%;
+    height: 50dvh;
+    background-color: var(--backgroundColor);
+    box-shadow: none; /* הסרת הצללה */
+    border-radius: 8px;
+    margin-top:13%;
 }
 
 /* עיצוב ייחודי למסכים קטנים */

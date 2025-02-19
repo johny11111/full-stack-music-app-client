@@ -214,8 +214,7 @@
 }
 
 .rotatingImg {
-    transition: ease-in-out 1s;
-    animation: rotate 5s linear infinite;
+  align-items: center;
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -263,11 +262,11 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
     .containerPlayer {
         animation: slideOut 1s forwards; 
         grid-template-rows: calc(100% / 3);
-        max-height: 13dvh;
+        max-height: 17dvh;
         bottom: 3.7rem;
         background-color: var(--backgroundColor); 
     }
@@ -286,6 +285,16 @@
         display: flex;
         align-items: normal;
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .containerPlayer {
+        animation: slideOut 1s forwards; 
+        grid-template-rows: calc(100% / 3);
+        max-height: 12dvh;
+        bottom: 3.7rem;
+        background-color: var(--backgroundColor); 
     }
 }
 

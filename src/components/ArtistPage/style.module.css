@@ -3,7 +3,7 @@
     text-align: center;
     padding: 1rem;
     height: 95dvh;
-    background: var(--backgroundColor); 
+   
     transition: background-color 0.3s ease; 
 }
 
@@ -21,7 +21,7 @@
 }
 
 .containerArtistPage h1:hover {
-    color: var(--secondaryHighlightColor); /* שינוי צבע לכותרת בזמן רחיפה */
+    color: var(--secondaryHighlightColor); 
 }
 
 .containerAlbumArtistPage {

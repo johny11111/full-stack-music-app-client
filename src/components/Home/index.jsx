@@ -79,50 +79,51 @@ export default function Home({ setScreenTime, screenTime, currentSongIndex, setC
                             <div className={styles.containerSongsH}>
                                 <div className={styles.containerHomeContent}>
                                     <div className={currentSong ? styles.homeBodyContent : styles.homeBodyContentPlay}>
+                                        {/* אמנים */}
                                         <h3>אמנים</h3>
                                         <div className={styles.containerArtist}>
                                             {artists && artists.length > 0 ? (showAllArtists ? artists : artists.slice(0, 6)).map((artist, i) => (
                                                 <ArtistCard key={artist._id} artist={artist} i={i} />
                                             )) : <p>אין אמנים להצגה</p>}
-                                            {artists && artists.length > 6 && (
-                                                <button className={styles.showMoreButton} onClick={() => setShowAllArtists(!showAllArtists)}>
-                                                    {showAllArtists ? 'הצג פחות' : 'לראות עוד'}
-                                                </button>
-                                            )}
                                         </div>
+                                        {artists && artists.length > 6 && (
+                                            <button className={styles.showMoreButton} onClick={() => setShowAllArtists(!showAllArtists)}>
+                                                {showAllArtists ? 'הצג פחות' : 'לראות עוד'}
+                                            </button>
+                                        )}
 
                                         <h3>שירים שאהבתי</h3>
                                         <div>
                                             {filterLibrary && filterLibrary.length > 0 ? <AlbumCard album={filterLibrary[0]} /> : <p>אין שירים להצגה</p>}
                                         </div>
 
+                                        {/* אלבומים בספרדית */}
                                         <h3>אלבומים בספרדית</h3>
                                         <div className={styles.containerTitle}>
                                             {albumsInSpanish && albumsInSpanish.length > 0 ? (showAllSpanish ? albumsInSpanish : albumsInSpanish.slice(0, 8)).map((album, i) => (
                                                 <AlbumCard key={album._id} album={album} i={i} />
                                             )) : <p>אין אלבומים בספרדית להצגה</p>}
-                                            {albumsInSpanish && albumsInSpanish.length > 6 && (
-                                                <div className={styles.showMoreButtonContainer}>
-                                                    <button className={styles.showMoreButton} onClick={() => setShowAllSpanish(!showAllSpanish)}>
-                                                        {showAllSpanish ? 'הצג פחות' : 'לראות עוד'}
-                                                    </button>
-                                                </div>
-                                            )}
                                         </div>
+                                        {albumsInSpanish && albumsInSpanish.length > 6 && (
+                                            <button className={styles.showMoreButton} onClick={() => setShowAllSpanish(!showAllSpanish)}>
+                                                {showAllSpanish ? 'הצג פחות' : 'לראות עוד'}
+                                            </button>
+                                        )}
 
+
+                                        {/* אלבומים בעברית */}
                                         <h3>אלבומים בעברית</h3>
                                         <div className={styles.containerTitle}>
                                             {albumsInHebrew && albumsInHebrew.length > 0 ? (showAllHebrew ? albumsInHebrew : albumsInHebrew.slice(0, 8)).map((album, i) => (
                                                 <AlbumCard key={album._id} album={album} i={i} />
                                             )) : <p>אין אלבומים בעברית להצגה</p>}
-                                            {albumsInHebrew && albumsInHebrew.length > 6 && (
-                                                <div className={styles.showMoreButtonContainer}>
-                                                    <button className={styles.showMoreButton} onClick={() => setShowAllHebrew(!showAllHebrew)}>
-                                                        {showAllHebrew ? 'הצג פחות' : 'לראות עוד'}
-                                                    </button>
-                                                </div>
-                                            )}
                                         </div>
+                                        {albumsInHebrew && albumsInHebrew.length > 6 && (
+                                            <button className={styles.showMoreButton} onClick={() => setShowAllHebrew(!showAllHebrew)}>
+                                                {showAllHebrew ? 'הצג פחות' : 'לראות עוד'}
+                                            </button>
+                                        )}
+
                                     </div>
                                 </div>
                             </div>
