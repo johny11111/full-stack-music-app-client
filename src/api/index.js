@@ -7,8 +7,6 @@ const baseUrl = "https://full-stack-music-app-server.onrender.com/";
 // const baseUrl = "http://localhost:4000/";
 
 
-
-
 export const validate = async (token) => {
     try {
         const res = await axios.get(`${baseUrl}users/login`, {
@@ -21,7 +19,6 @@ export const validate = async (token) => {
         console.log(err);
     }
 }
-
 
 export const getAllUsers = async () => {
     try {
@@ -42,7 +39,6 @@ export const getAllSongs = async () => {
         return console.log(error);;
     }
 }
-
 export const getAllAlbums = async () => {
     try {
         const response = await axios.get(`${baseUrl}albums/getAllALbums`)
